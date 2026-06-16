@@ -1,18 +1,20 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+    private static string savePath = "Assets/Data.txt";
     [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
-    [SerializeField] private Level[] levels;
 
     //Gravity Variables
-    
+
     [SerializeField] private float gravityStrength = 9.81f;
     private bool gravityUp = false;
-
-
 
     #region Public getters
     public static GameManager Instance
@@ -28,11 +30,17 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         instance = this;
 
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gravityAffectedObjects = new();
+    }
 
     public void AddGravityAffectedObj(Rigidbody2D gameObject)
     {
@@ -47,17 +55,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LevelComplete(int levelNumber, int numberOfStars)
+    public void LevelComplete(int numberOfStars)
     {
-        if (numberOfStars > levels[levelNumber].maxStarts)
-            levels[levelNumber].maxStarts = numberOfStars;
+        if (numberOfStars > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " stars"))
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " stars", numberOfStars);
+
+        if (Time.timeSinceLevelLoad < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " time"))
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " stars", Time.timeSinceLevelLoad);
     }
 
 
     public void SwapGravity()
     {
         gravityUp = !gravityUp;
-
 
         if (gravityUp)
         {
@@ -75,9 +85,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-}
-public class Level
-{
-    public string name;
-    public int maxStarts;
 }
