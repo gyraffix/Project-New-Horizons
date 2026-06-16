@@ -11,9 +11,10 @@ public class GameManager : MonoBehaviour
     private static string savePath = "Assets/Data.txt";
     [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
 
-    //Gravity Variables
 
-    [SerializeField] private float gravityStrength = 9.81f;
+    [Header("Gravity Variables")]
+    [SerializeField] private float gravityStrength = 1f;
+    [SerializeField] private float initialSwapVelocity = 1f;
     private bool gravityUp = false;
 
     #region Public getters
@@ -68,20 +69,23 @@ public class GameManager : MonoBehaviour
     public void SwapGravity()
     {
         gravityUp = !gravityUp;
+        float gravity;
 
         if (gravityUp)
         {
-            foreach (var obj in gravityAffectedObjects)
-            {
-                obj.gravityScale = -gravityStrength;
-            }
+            gravity = -gravityStrength;
         }
         else
         {
-            foreach (var obj in gravityAffectedObjects)
-            {
-                obj.gravityScale = gravityStrength;
-            }
+            gravity = gravityStrength;
+        }
+
+
+        foreach (var obj in gravityAffectedObjects)
+        {
+            if (!obj.GetComponent<AffectedByGravity>().inAir)
+            obj.linearVelocityY = initialSwapVelocity * -gravity;
+            obj.gravityScale = gravity;
         }
     }
 
