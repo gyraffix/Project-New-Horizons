@@ -48,6 +48,13 @@ public class SceneSwitcher : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    
+    public void ReloadScene()
+    {
+        var curScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(curScene.name);
+    }
+
     public void NextScene()
     {
         var curScene = SceneManager.GetActiveScene();
