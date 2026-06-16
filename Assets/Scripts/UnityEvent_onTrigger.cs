@@ -12,17 +12,17 @@ public class UnityEvent_onTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (checkForTag == null || !other.CompareTag(checkForTag))
-            return;
-            
-        onTriggerEnter.Invoke();
+        if (checkForTag == null || other.CompareTag(checkForTag))
+            onTriggerEnter.Invoke();
     }
     private void OnTriggerStay2D(Collider2D other)
     {
-        onTriggerStay.Invoke();
+        if (checkForTag == null || other.CompareTag(checkForTag))
+            onTriggerStay.Invoke();
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        onTriggerExit.Invoke();
+        if (checkForTag == null || other.CompareTag(checkForTag))
+            onTriggerExit.Invoke();
     }
 }

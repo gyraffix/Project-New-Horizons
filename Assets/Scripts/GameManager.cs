@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         instance = this;
-
+        
         DontDestroyOnLoad(gameObject);
     }
 
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         if (Time.timeSinceLevelLoad < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " time"))
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " stars", Time.timeSinceLevelLoad);
     }
-
+     
 
     public void SwapGravity()
     {

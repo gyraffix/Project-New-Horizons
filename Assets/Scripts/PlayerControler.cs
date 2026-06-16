@@ -54,7 +54,7 @@ public class PlayerControler : MonoBehaviour
         yield return new WaitForSeconds(gravityCooldown);
         coolDownActive = false;
     }
-
+    
     private void SwitchGravity()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !coolDownActive)
