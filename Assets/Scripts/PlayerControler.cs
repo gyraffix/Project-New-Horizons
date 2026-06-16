@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -8,6 +9,11 @@ public class PlayerControler : MonoBehaviour
     
     [SerializeField] private float magnitude;
 
+    [Header("Gravity Variables")]
+    [SerializeField] private float gravityCooldown;
+    private bool coolDownActive;
+
+    private float direction;
     private Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,11 +28,16 @@ public class PlayerControler : MonoBehaviour
         NormalMovement();
         SwitchGravity();
     }
+    private void FixedUpdate()
+    {
+        rb.linearVelocityX = direction * magnitude;
+    }
 
     private void NormalMovement()
     {
         Vector2 directions = new Vector2(1, -1);
-        float direction = 0;
+
+        direction = 0;
         if (Input.GetKey(moveRight))
         {
             direction = directions.x;
@@ -35,14 +46,20 @@ public class PlayerControler : MonoBehaviour
         {
             direction = directions.y;
         }
-
-
-        rb.AddForce(new Vector2(magnitude, 0) * direction, ForceMode2D.Force);
     }
+
+    private IEnumerator GravityCooldown()
+    {
+        coolDownActive = true;
+        yield return new WaitForSeconds(gravityCooldown);
+        coolDownActive = false;
+    }
+
     private void SwitchGravity()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !coolDownActive)
         {
+            StartCoroutine(GravityCooldown());
             GameManager.Instance.SwapGravity();
         }
     }

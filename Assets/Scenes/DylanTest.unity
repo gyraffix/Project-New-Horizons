@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 145903764}
   - component: {fileID: 145903765}
   - component: {fileID: 145903766}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,8 +153,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 3
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -166,7 +166,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &145903762
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a08f26bdf247394bb814bd09a15bbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inAir: 1
 --- !u!114 &145903766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveRight: 100
   moveLeft: 97
-  magnitude: 2
+  magnitude: 4
+  gravityCooldown: 0.5
 --- !u!1 &227777715
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,6 +897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityAffectedObjects: []
   gravityStrength: 1
+  initialSwapVelocity: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
