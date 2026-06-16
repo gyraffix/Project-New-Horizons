@@ -7,6 +7,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
     [SerializeField] private Level[] levels;
 
+    //Gravity Variables
+    
+    [SerializeField] private float gravityStrength = 9.81f;
+    private bool gravityUp = false;
+
+
 
     #region Public getters
     public static GameManager Instance
@@ -46,6 +52,29 @@ public class GameManager : MonoBehaviour
         if (numberOfStars > levels[levelNumber].maxStarts)
             levels[levelNumber].maxStarts = numberOfStars;
     }
+
+
+    public void SwapGravity()
+    {
+        gravityUp = !gravityUp;
+
+
+        if (gravityUp)
+        {
+            foreach (var obj in gravityAffectedObjects)
+            {
+                obj.gravityScale = -gravityStrength;
+            }
+        }
+        else
+        {
+            foreach (var obj in gravityAffectedObjects)
+            {
+                obj.gravityScale = gravityStrength;
+            }
+        }
+    }
+
 }
 public class Level
 {

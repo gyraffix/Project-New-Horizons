@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         NormalMovement();
+        SwitchGravity();
     }
 
     private void NormalMovement()
@@ -36,5 +38,12 @@ public class PlayerControler : MonoBehaviour
 
 
         rb.AddForce(new Vector2(magnitude, 0) * direction, ForceMode2D.Force);
+    }
+    private void SwitchGravity()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameManager.Instance.SwapGravity();
+        }
     }
 }
