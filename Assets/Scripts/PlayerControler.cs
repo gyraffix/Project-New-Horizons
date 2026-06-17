@@ -14,6 +14,10 @@ public class PlayerControler : MonoBehaviour
     private bool coolDownActive;
 
     private float direction;
+
+    private bool movingLeft = false;
+    private bool movingRight = false;
+
     private Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,11 +42,11 @@ public class PlayerControler : MonoBehaviour
         Vector2 directions = new Vector2(1, -1);
 
         direction = 0;
-        if (Input.GetKey(moveRight))
+        if (Input.GetKey(moveRight) || movingRight)
         {
             direction = directions.x;
         }
-        else if (Input.GetKey(moveLeft))
+        else if (Input.GetKey(moveLeft) || movingLeft)
         {
             direction = directions.y;
         }
@@ -62,5 +66,15 @@ public class PlayerControler : MonoBehaviour
             StartCoroutine(GravityCooldown());
             GameManager.Instance.SwapGravity();
         }
+    }
+
+    public void SwitchMovingLeft()
+    {
+        movingLeft = !movingLeft;
+    }
+
+    public void SwitchMovingRight()
+    {
+        movingRight = !movingRight;
     }
 }
