@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlayerControler : MonoBehaviour
 {
+    private static PlayerControler instance;
+
     [Header("Keybinds")]
     [SerializeField] private KeyCode moveRight;
     [SerializeField] private KeyCode moveLeft;
@@ -22,9 +23,17 @@ public class PlayerControler : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    #region Public getters
+    public static PlayerControler Instance { get { return instance; } }
+    public float Direction { get { return direction; } }
+    public float Magnitude { get { return magnitude; } }
+
+    #endregion
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        instance = this;
         rb = GetComponent<Rigidbody2D>();
     }
 
