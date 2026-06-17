@@ -377,6 +377,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!4 &410098369 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3268565498269983194, guid: 4bfd8dc6b9a244e789f32f45126ed851, type: 3}
+  m_PrefabInstance: {fileID: 8913641572831781136}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &878488574
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +492,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3899123238353842026, guid: a9ea303fb8c32418bbdf0239d1f809cf, type: 3}
+      propertyPath: currentCheckpoint
+      value: 
+      objectReference: {fileID: 410098369}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

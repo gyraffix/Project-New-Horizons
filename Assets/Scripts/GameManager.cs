@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    private static string savePath = "Assets/Data.txt";
     [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
 
 
@@ -58,8 +57,10 @@ public class GameManager : MonoBehaviour
         if (numberOfStars > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " stars"))
             PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " stars", numberOfStars);
 
-        if (Time.timeSinceLevelLoad < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " time"))
-            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " stars", Time.timeSinceLevelLoad);
+        if (Time.timeSinceLevelLoad < (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " is completed") == 0 ? Mathf.Infinity : PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " time")))
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " time", Time.timeSinceLevelLoad);
+
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " is completed", 1);
     }
 
 
@@ -76,7 +77,6 @@ public class GameManager : MonoBehaviour
         {
             gravity = gravityStrength;
         }
-
 
         foreach (var obj in gravityAffectedObjects)
         {
