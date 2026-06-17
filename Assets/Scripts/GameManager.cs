@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,8 +15,8 @@ public class GameManager : MonoBehaviour
     private bool gravityUp = false;
 
     #region Public getters
-    public static GameManager Instance
-    { get { return instance; } }
+    public static GameManager Instance { get { return instance; } }
+    public bool GravityUp { get { return gravityUp; } }
 
     #endregion
 
@@ -34,7 +31,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         instance = this;
-        
+
         DontDestroyOnLoad(gameObject);
     }
 
@@ -64,7 +61,7 @@ public class GameManager : MonoBehaviour
         if (Time.timeSinceLevelLoad < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " time"))
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " stars", Time.timeSinceLevelLoad);
     }
-     
+
 
     public void SwapGravity()
     {
@@ -84,7 +81,7 @@ public class GameManager : MonoBehaviour
         foreach (var obj in gravityAffectedObjects)
         {
             if (!obj.GetComponent<AffectedByGravity>().inAir)
-            obj.linearVelocityY = initialSwapVelocity * -gravity;
+                obj.linearVelocityY = initialSwapVelocity * -gravity;
             obj.gravityScale = gravity;
         }
     }
