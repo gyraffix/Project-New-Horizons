@@ -34,7 +34,6 @@ public class PlayerControler : MonoBehaviour
     #region Public getters
     public static PlayerControler Instance { get { return instance; } }
     public float Direction { get { return direction; } }
-    public float Magnitude { get { return magnitude; } }
 
     #endregion
 
