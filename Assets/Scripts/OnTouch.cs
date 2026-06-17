@@ -19,12 +19,14 @@ public class OnTouch : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
-
+                
                 RaycastHit hit; 
-                Physics.Raycast(ray, out hit, 1000, layerMask: 5);
+                Physics.Raycast(ray, out hit, 1000);
+                    
 
-                if (hit.collider != null && hit.collider.gameObject.Equals(gameObject))
+                if (hit.collider != null)// && hit.collider.gameObject.Equals(gameObject))
                 {
+                    Debug.Log(hit.collider.name);
                     onTouch.Invoke();
                 }
             }
