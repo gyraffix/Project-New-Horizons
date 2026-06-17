@@ -193,4 +193,4 @@ MonoBehaviour:
   moveLeft: 97
   respawn: 114
   magnitude: 4
-  gravityCooldown: 0.5
+  gravityCooldown: 0.3
