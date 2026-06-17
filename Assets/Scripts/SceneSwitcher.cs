@@ -4,12 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public static SceneSwitcher instance;
+    private static SceneSwitcher instance;
     
     [SerializeField] private KeyCode nextSceneKey;
     [SerializeField] private KeyCode prevSceneKey;
 
-    
+    #region Public getters
+    public static SceneSwitcher Instance { get { return instance; } }    
+    #endregion
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -18,9 +21,7 @@ public class SceneSwitcher : MonoBehaviour
             return;
         }
 
-        instance = this;
-
-        DontDestroyOnLoad(gameObject);
+        instance = this;        
     }
 
 

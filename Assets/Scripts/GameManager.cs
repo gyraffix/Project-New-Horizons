@@ -85,5 +85,4 @@ public class GameManager : MonoBehaviour
             obj.gravityScale = gravity;
         }
     }
-
 }
