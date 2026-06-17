@@ -6,7 +6,12 @@ public class CheckpointManager : MonoBehaviour
     private static CheckpointManager instance;
     private PlayerControler player;
     [SerializeField] private Transform currentCheckpoint;
-    private HashSet<Transform> previousCheckpoints;
+    private HashSet<Transform> previousCheckpoints = new();
+
+    #region Public getters
+    public static CheckpointManager Instance { get { return instance; } }
+
+    #endregion
 
     private void Awake()
     {
@@ -20,11 +25,12 @@ public class CheckpointManager : MonoBehaviour
 
     public void SetCheckpoint(Transform checkpoint)
     {
-        if (previousCheckpoints.Contains(transform))
+        Debug.Log("set checkpoint");
+        if (previousCheckpoints.Contains(checkpoint))
             return;
 
         previousCheckpoints.Add(currentCheckpoint);
-        currentCheckpoint = transform;
+        currentCheckpoint = checkpoint;
     }
 
     public void Respawn()

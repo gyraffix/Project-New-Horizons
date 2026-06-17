@@ -4,9 +4,11 @@ using UnityEngine.Rendering;
 
 public class PlayerControler : MonoBehaviour
 {
+    [Header("Keybinds")]
     [SerializeField] private KeyCode moveRight;
     [SerializeField] private KeyCode moveLeft;
-    
+    [SerializeField] private KeyCode respawn;
+
     [SerializeField] private float magnitude;
 
     [Header("Gravity Variables")]
@@ -27,6 +29,7 @@ public class PlayerControler : MonoBehaviour
     {
         NormalMovement();
         SwitchGravity();
+        Respawn();
     }
     private void FixedUpdate()
     {
@@ -54,13 +57,21 @@ public class PlayerControler : MonoBehaviour
         yield return new WaitForSeconds(gravityCooldown);
         coolDownActive = false;
     }
-    
+
     private void SwitchGravity()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !coolDownActive)
         {
             StartCoroutine(GravityCooldown());
             GameManager.Instance.SwapGravity();
+        }
+    }
+
+    private void Respawn()
+    {
+        if (Input.GetKeyDown(respawn))
+        {
+            CheckpointManager.Instance.Respawn();
         }
     }
 }
