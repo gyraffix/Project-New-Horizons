@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RainManager : MonoBehaviour
 {    
-    private static RainManager instance;
     [SerializeField] private Transform rain;
     [SerializeField] private GameObject gravDown;
     [SerializeField] private GameObject gravUp;
@@ -12,24 +11,9 @@ public class RainManager : MonoBehaviour
 
     private bool covered;
 
-    #region Public getters
-    public static RainManager Instance { get { return instance; } }
-    #endregion
-
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-    }
-
     void Start()
     {
-        rain = GameObject.Find("Rain").transform;
+        rain = GameObject.Find("GravityRain").transform;
         gravDown = rain.Find("Grav Down").gameObject;
         gravUp = rain.Find("Grav Up").gameObject;
         hitboxes = rain.Find("Rain Hitboxes").gameObject;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,6 +12,13 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private KeyCode respawn;
 
     [SerializeField] private float magnitude;
+
+    [Header("Dash Variables")]
+    [SerializeField] private float dashMagnitude;
+    [SerializeField] private float dashDuration;
+    private bool dashing;
+    private bool horizontalOnlyDash;
+    private Vector2 dashDirection;
 
     [Header("Gravity Variables")]
     [SerializeField] private float gravityCooldown;
@@ -47,6 +55,19 @@ public class PlayerControler : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocityX = direction * magnitude;
+        StartCoroutine(FixedUpdateDash());
+    }
+
+    private IEnumerator FixedUpdateDash()
+    {
+        if (dashing)
+        {
+            rb.AddForce(dashDirection * dashMagnitude, ForceMode2D.Impulse);
+            if (horizontalOnlyDash)
+                rb.linearVelocityY = 0;
+            yield return new WaitForSeconds(dashDuration);
+            dashing = false;
+        }
     }
 
     private void NormalMovement()
@@ -78,6 +99,21 @@ public class PlayerControler : MonoBehaviour
             StartCoroutine(GravityCooldown());
             GameManager.Instance.SwapGravity();
         }
+    }
+
+    public void Dash(bool dashRight, bool universalDash, bool horizontalOnly)
+    {
+        if (universalDash)
+        {
+            dashDirection = new Vector2(rb.linearVelocity.x, 0);
+            dashDirection.Normalize();
+        }
+        else if (dashRight)
+            dashDirection.x = 1;
+        else dashDirection.x = -1;
+
+        horizontalOnlyDash = horizontalOnly;
+        dashing = true;
     }
 
     public void SwitchMovingLeft()
