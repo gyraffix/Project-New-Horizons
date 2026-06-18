@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,7 +26,6 @@ public class CheckpointManager : MonoBehaviour
 
     public void SetCheckpoint(Transform checkpoint)
     {
-        Debug.Log("set checkpoint");
         if (previousCheckpoints.Contains(checkpoint))
             return;
 
@@ -33,8 +33,15 @@ public class CheckpointManager : MonoBehaviour
         currentCheckpoint = checkpoint;
     }
 
-    public void Respawn()
+    public void Respawn(float animDuration)
     {
+        StartCoroutine(RespawnDelay(animDuration));
+    }
+
+    private IEnumerator RespawnDelay(float animDuration)
+    {
+        yield return new WaitForSeconds(animDuration);
+
         if (GameManager.Instance.GravityUp)
             GameManager.Instance.SwapGravity();
 

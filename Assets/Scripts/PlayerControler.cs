@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,8 +9,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private KeyCode moveRight;
     [SerializeField] private KeyCode moveLeft;
     [SerializeField] private KeyCode respawn;
-
-    [SerializeField] private float magnitude;
+    [SerializeField] private KeyCode pause;
 
     [Header("Dash Variables")]
     [SerializeField] private float dashMagnitude;
@@ -24,12 +22,16 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float gravityCooldown;
     private bool coolDownActive;
 
+    [Header("Movement variables")]
+    [SerializeField] private float magnitude;
     private float direction;
-
     private bool movingLeft = false;
     private bool movingRight = false;
 
     private Rigidbody2D rb;
+
+    [Header("Animation")]
+    [SerializeField] private float animationDuration = 0.5f;
 
     #region Public getters
     public static PlayerControler Instance { get { return instance; } }
@@ -37,19 +39,18 @@ public class PlayerControler : MonoBehaviour
 
     #endregion
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         instance = this;
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         NormalMovement();
         SwitchGravity();
         Respawn();
+        Pause();
     }
     private void FixedUpdate()
     {
@@ -128,8 +129,12 @@ public class PlayerControler : MonoBehaviour
     private void Respawn()
     {
         if (Input.GetKeyDown(respawn))
-        {
-            CheckpointManager.Instance.Respawn();
-        }
+            CheckpointManager.Instance.Respawn(animationDuration);
+    }
+
+    private void Pause()
+    {
+        if (Input.GetKeyDown(pause))
+            GameManager.Instance.Pause();
     }
 }
