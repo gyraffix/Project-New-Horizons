@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RainManager : MonoBehaviour
-{    
-    [SerializeField] private Transform rain;
+{        
     [SerializeField] private GameObject gravDown;
     [SerializeField] private GameObject gravUp;
     [SerializeField] private GameObject hitboxes;
@@ -13,10 +12,10 @@ public class RainManager : MonoBehaviour
 
     void Start()
     {
-        rain = GameObject.Find("GravityRain").transform;
-        gravDown = rain.Find("Grav Down").gameObject;
-        gravUp = rain.Find("Grav Up").gameObject;
-        hitboxes = rain.Find("Rain Hitboxes").gameObject;
+        
+        gravDown = transform.Find("Grav Down").gameObject;
+        gravUp = transform.Find("Grav Up").gameObject;
+        hitboxes = transform.Find("Rain Hitboxes").gameObject;
     }
 
     void Update()

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,10 @@ public class GameManager : MonoBehaviour
     [Header("Gravity Variables")]
     [SerializeField] private float gravityStrength = 1f;
     [SerializeField] private float initialSwapVelocity = 1f;
+    [SerializeField] private int totalGravitySwitches = 1;
+    private int currentGravitySwitches = 1;
     private bool gravityUp = false;
+    
 
     #region Public getters
     public static GameManager Instance { get { return instance; } }
@@ -66,6 +70,11 @@ public class GameManager : MonoBehaviour
 
     public void SwapGravity()
     {
+        if (currentGravitySwitches <= 0)
+            return;
+
+        if(PlayerControler.Instance.GetComponent<AffectedByGravity>().inAir)
+        currentGravitySwitches--;
         gravityUp = !gravityUp;
         float gravity;
 
@@ -84,6 +93,11 @@ public class GameManager : MonoBehaviour
                 obj.linearVelocityY = initialSwapVelocity * -gravity;
             obj.gravityScale = gravity;
         }
+    }
+
+    public void ResetGravity()
+    {
+        currentGravitySwitches = totalGravitySwitches;
     }
 
     public void Pause()
