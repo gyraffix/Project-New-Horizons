@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 4921959689345783572}
   - component: {fileID: 5054926978282954190}
   - component: {fileID: 3717852443384545825}
-  - component: {fileID: 4754775545600464977}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -189,19 +188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraSpeed: 0.02
   maxDistance: 1.5
---- !u!114 &4754775545600464977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807719764308367801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b5c69023c7f5e54792f1b6c34b99777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 307237998261092957}
 --- !u!1 &1242753633339891462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1385,7 +1371,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4046921420759497456}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
           m_MethodName: SwapGravity
           m_Mode: 1
@@ -1578,7 +1564,7 @@ GameObject:
   - component: {fileID: 5514935783021282263}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2287,11 +2273,6 @@ PrefabInstance:
       addedObject: {fileID: 5139419981866631271}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
---- !u!1 &307237998261092957 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 503720448567493281, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
-  m_PrefabInstance: {fileID: 197617701465456892}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3652180517520178938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3463605199716351494, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
@@ -2302,7 +2283,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8809986568520850180, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
   m_PrefabInstance: {fileID: 197617701465456892}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307237998261092957}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92996fa0f9b667c43a8c088c9b64b2a3, type: 3}

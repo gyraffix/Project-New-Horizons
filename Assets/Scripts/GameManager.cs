@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         currentGravitySwitches--;
         gravityUp = !gravityUp;
         float gravity;
-
+        
         if (gravityUp)
         {
             gravity = -gravityStrength;
