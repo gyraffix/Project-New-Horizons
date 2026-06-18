@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inAir: 1
+  coyoteTime: 0.125
 --- !u!114 &8809986568520850180
 MonoBehaviour:
   m_ObjectHideFlags: 0

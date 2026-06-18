@@ -50,6 +50,7 @@ public class PlayerControler : MonoBehaviour
         NormalMovement();
         SwitchGravity();
         Respawn();
+        
     }
     private void FixedUpdate()
     {
