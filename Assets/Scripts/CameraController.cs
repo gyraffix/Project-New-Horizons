@@ -1,6 +1,5 @@
 using DG.Tweening;
 using System.Collections;
-using Unity.Android.Gradle.Manifest;
 using Unity.Mathematics;
 using UnityEngine;
 
