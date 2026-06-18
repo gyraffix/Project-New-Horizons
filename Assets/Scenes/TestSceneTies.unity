@@ -273,7 +273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40edc4417436c0341a5e0409458d9f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rain: {fileID: 0}
   gravDown: {fileID: 0}
   gravUp: {fileID: 0}
   hitboxes: {fileID: 0}
@@ -696,7 +695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8809986568520850180, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
       propertyPath: dashDuration
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8809986568520850180, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
       propertyPath: dashMagnitude
@@ -1171,7 +1170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6511043582390027819, guid: 4abc0bf5cac784a4fb60c2a6a64d6b82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6511043582390027819, guid: 4abc0bf5cac784a4fb60c2a6a64d6b82, type: 3}
       propertyPath: m_LocalRotation.w

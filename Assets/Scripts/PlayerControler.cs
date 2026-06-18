@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
@@ -15,7 +16,6 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float dashMagnitude;
     [SerializeField] private float dashDuration;
     private bool dashing;
-    private bool horizontalOnlyDash;
     private Vector2 dashDirection;
 
     [Header("Gravity Variables")]
@@ -54,21 +54,10 @@ public class PlayerControler : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.linearVelocityX = direction * magnitude;
+        rb.linearVelocityX = direction * magnitude;        
         StartCoroutine(FixedUpdateDash());
     }
 
-    private IEnumerator FixedUpdateDash()
-    {
-        if (dashing)
-        {
-            rb.AddForce(dashDirection * dashMagnitude, ForceMode2D.Impulse);
-            if (horizontalOnlyDash)
-                rb.linearVelocityY = 0;
-            yield return new WaitForSeconds(dashDuration);
-            dashing = false;
-        }
-    }
 
     private void NormalMovement()
     {
@@ -101,7 +90,7 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    public void Dash(bool dashRight, bool universalDash, bool horizontalOnly)
+    public void Dash(bool dashRight, bool universalDash)
     {
         if (universalDash)
         {
@@ -111,9 +100,39 @@ public class PlayerControler : MonoBehaviour
         else if (dashRight)
             dashDirection.x = 1;
         else dashDirection.x = -1;
-
-        horizontalOnlyDash = horizontalOnly;
+        
         dashing = true;
+    }
+
+    float timer;
+
+    private IEnumerator FixedUpdateDash()
+    {
+        if (dashing)
+        {
+            //float dashForce = dashDirection.x * dashMagnitude; 
+            //for (int i = 0; i < dashDuration * 60; i++)
+            //{
+            //    Debug.Log(dashForce);
+            //    rb.AddForceX(dashForce, ForceMode2D.Impulse);
+            //    yield return new WaitForFixedUpdate();
+            //}
+
+
+            float storeVeloY = rb.linearVelocityY;
+            rb.AddForce(dashDirection * dashMagnitude, ForceMode2D.Impulse);
+            while (timer < dashDuration / 2.5f)
+            {
+                rb.linearVelocityY = 0;
+                yield return new WaitForFixedUpdate();
+                timer += Time.fixedDeltaTime;
+            }
+            yield return new WaitForSeconds(dashDuration / 1.5f);
+
+            dashing = false;
+            //yield return new WaitForSeconds(1f);
+        }
+        else timer = 0;
     }
 
     public void SwitchMovingLeft()

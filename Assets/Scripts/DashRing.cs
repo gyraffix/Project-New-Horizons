@@ -7,8 +7,7 @@ public class DashRing : MonoBehaviour
 {
     private enum DashDirection { Left, Right, Universal }    
     [SerializeField] private string checkForTag;
-    [SerializeField] private DashDirection dashDirection = DashDirection.Left;
-    [SerializeField] private bool horizontalOnlyDash;        
+    [SerializeField] private DashDirection dashDirection = DashDirection.Left;    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,6 +25,6 @@ public class DashRing : MonoBehaviour
                 universalDash = true;
                 break;
         }
-        PlayerControler.Instance.Dash(dashRight, universalDash, horizontalOnlyDash);
+        PlayerControler.Instance.Dash(dashRight, universalDash);
     }
 }
