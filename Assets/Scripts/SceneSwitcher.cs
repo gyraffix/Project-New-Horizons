@@ -44,9 +44,9 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
-    public void SwitchScene(string sceneName)
+    public void SwitchScene(int buildIndex)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(buildIndex);
     }
 
     
