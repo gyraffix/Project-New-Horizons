@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RainDown
   - RainUp
+  - Ground
   layers:
   - Default
   - TransparentFX
