@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         currentGravitySwitches--;
         gravityUp = !gravityUp;
         float gravity;
-
+        
         if (gravityUp)
         {
             gravity = -gravityStrength;
@@ -98,5 +98,13 @@ public class GameManager : MonoBehaviour
     public void ResetGravity()
     {
         currentGravitySwitches = totalGravitySwitches;
+    }
+
+    public void Pause()
+    {
+        if (Time.timeScale == 0)
+            Time.timeScale = 1;
+        else
+            Time.timeScale = 0;
     }
 }

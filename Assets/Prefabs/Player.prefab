@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3463605199716351494}
   - component: {fileID: 7585935651982019979}
   - component: {fileID: 2945363669184506482}
-  - component: {fileID: 4057068511091812487}
   - component: {fileID: 6989987085202021520}
+  - component: {fileID: 6382268841867764382}
   - component: {fileID: 8809986568520850180}
   m_Layer: 2
   m_Name: Player
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1e6c864c76043b74aa6c5843762b8613, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -118,8 +118,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &4057068511091812487
-BoxCollider2D:
+--- !u!114 &6989987085202021520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503720448567493281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a08f26bdf247394bb814bd09a15bbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inAir: 1
+  coyoteTime: 0.125
+--- !u!70 &6382268841867764382
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -153,31 +167,8 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &6989987085202021520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503720448567493281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a08f26bdf247394bb814bd09a15bbac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inAir: 1
-  coyoteTime: 0.125
+  m_Direction: 0
 --- !u!114 &8809986568520850180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,4 +185,6 @@ MonoBehaviour:
   moveLeft: 97
   respawn: 114
   magnitude: 4
+  dashMagnitude: 0
+  dashDuration: 0
   gravityCooldown: 0.3
