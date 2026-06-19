@@ -11,6 +11,8 @@ public class DashRing : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.CompareTag(checkForTag))
+            return;
         bool dashRight = false;
         bool universalDash = false;
         switch (dashDirection)

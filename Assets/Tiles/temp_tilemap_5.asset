@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: temp_tilemap_5
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 384981544, guid: c45f14a0df6c83d42a8b545aabd743e3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_Transform:
     e00: 1
     e01: 0
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 0}
+  m_InstancedGameObject: {fileID: 3690218961349836238, guid: da29a3a6d55b8ef4db97b5f23e1f32ee, type: 3}
   m_Flags: 1
   m_ColliderType: 1

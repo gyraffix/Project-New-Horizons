@@ -184,7 +184,9 @@ MonoBehaviour:
   moveRight: 100
   moveLeft: 97
   respawn: 114
-  magnitude: 4
-  dashMagnitude: 0
-  dashDuration: 0
+  pause: 0
+  dashMagnitude: 10
+  dashDuration: 1
   gravityCooldown: 0.3
+  magnitude: 4
+  animationDuration: 0.5
