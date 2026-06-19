@@ -40,11 +40,13 @@ public class CheckpointManager : MonoBehaviour
 
     private IEnumerator RespawnDelay(float animDuration)
     {
+
         yield return new WaitForSeconds(animDuration);
 
         if (GameManager.Instance.GravityUp)
             GameManager.Instance.SwapGravity();
 
+        PlayerControler.Instance.ResetMovement();
         player.transform.position = currentCheckpoint.position;
     }
 }

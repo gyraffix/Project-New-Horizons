@@ -156,4 +156,13 @@ public class PlayerControler : MonoBehaviour
         if (Input.GetKeyDown(pause))
             GameManager.Instance.Pause();
     }
+
+    public void ResetMovement()
+    {
+        movingLeft = false;
+        movingRight = false;
+        direction = 0;
+
+        rb.linearVelocity = new Vector2(0, 0);
+    }
 }
