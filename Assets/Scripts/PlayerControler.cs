@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerControler : MonoBehaviour
 {
