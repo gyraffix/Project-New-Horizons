@@ -11,8 +11,9 @@ public class RainManager : MonoBehaviour
 
     [SerializeField] private ParticleSystem[] allRainDown;
     [SerializeField] private ParticleSystem[] allRainUp;
+    [SerializeField] private BoxCollider2D[] allHitboxes;
 
-    private bool covered;    
+    public bool covered;    
 
     void Start()
     {
@@ -22,7 +23,8 @@ public class RainManager : MonoBehaviour
         hitboxes = transform.Find("Rain Hitboxes").gameObject;
               
         allRainDown = gravDown.transform.GetComponentsInChildren<ParticleSystem>(true);
-        allRainUp = gravUp.transform.GetComponentsInChildren<ParticleSystem>(true);                
+        allRainUp = gravUp.transform.GetComponentsInChildren<ParticleSystem>(true);  
+        allHitboxes = transform.GetComponentsInChildren<BoxCollider2D>(true);
     }
 
     void Update()
@@ -60,6 +62,15 @@ public class RainManager : MonoBehaviour
         {
             Gizmos.DrawLine(new Vector2(partSystem.transform.position.x - (partSystem.shape.length / 2), partSystem.transform.position.y),
                 new Vector2(partSystem.transform.position.x + (partSystem.shape.length / 2), partSystem.transform.position.y));            
-        }        
+        }       
+        foreach (var collider in allHitboxes)
+        {
+            if (collider.transform.parent == hitboxes.transform)
+                Gizmos.color = Color.red;
+            else 
+                Gizmos.color = Color.green;            
+            Gizmos.DrawWireCube(new Vector2(collider.transform.position.x + collider.offset.x, collider.transform.position.y + collider.offset.y),
+                new Vector2(collider.size.x, collider.size.y));
+        }
     }
 }
