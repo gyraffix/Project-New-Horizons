@@ -110,15 +110,6 @@ public class PlayerControler : MonoBehaviour
     {
         if (dashing)
         {
-            //float dashForce = dashDirection.x * dashMagnitude; 
-            //for (int i = 0; i < dashDuration * 60; i++)
-            //{
-            //    Debug.Log(dashForce);
-            //    rb.AddForceX(dashForce, ForceMode2D.Impulse);
-            //    yield return new WaitForFixedUpdate();
-            //}
-
-
             float storeVeloY = rb.linearVelocityY;
             rb.AddForce(dashDirection * dashMagnitude, ForceMode2D.Impulse);
             while (timer < dashDuration / 2.5f)
@@ -129,8 +120,7 @@ public class PlayerControler : MonoBehaviour
             }
             yield return new WaitForSeconds(dashDuration / 1.5f);
 
-            dashing = false;
-            //yield return new WaitForSeconds(1f);
+            dashing = false;            
         }
         else timer = 0;
     }
