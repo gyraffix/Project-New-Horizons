@@ -81,7 +81,7 @@ public class PlayerControler : MonoBehaviour
         coolDownActive = false;
     }
 
-    public void SwitchGravity()
+    private void SwitchGravity()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !coolDownActive)
         {
@@ -89,6 +89,16 @@ public class PlayerControler : MonoBehaviour
             GameManager.Instance.SwapGravity();
         }
     }
+
+    public void SwitchGravityTouch()
+    {
+        if (!coolDownActive)
+        {
+            StartCoroutine(GravityCooldown());
+            GameManager.Instance.SwapGravity();
+        }
+    }
+
 
     public void Dash(bool dashRight, bool universalDash)
     {
