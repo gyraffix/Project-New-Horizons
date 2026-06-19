@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4223178036985732737}
   m_Layer: 0
   m_Name: GravityBox
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1e6c864c76043b74aa6c5843762b8613, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1e6c864c76043b74aa6c5843762b8613, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

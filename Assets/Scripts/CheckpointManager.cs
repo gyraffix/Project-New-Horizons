@@ -7,6 +7,7 @@ public class CheckpointManager : MonoBehaviour
     private static CheckpointManager instance;
     private PlayerControler player;
     [SerializeField] private Transform currentCheckpoint;
+    [SerializeField] private float animationDuration = 0.5f;
     private HashSet<Transform> previousCheckpoints = new();
 
     #region Public getters
@@ -33,18 +34,20 @@ public class CheckpointManager : MonoBehaviour
         currentCheckpoint = checkpoint;
     }
 
-    public void Respawn(float animDuration)
+    public void Respawn()
     {
-        StartCoroutine(RespawnDelay(animDuration));
+        StartCoroutine(RespawnDelay());
     }
 
-    private IEnumerator RespawnDelay(float animDuration)
+    private IEnumerator RespawnDelay()
     {
-        yield return new WaitForSeconds(animDuration);
+        player.GetComponent<Animator>().SetTrigger("Dying");
+        yield return new WaitForSeconds(animationDuration);
 
         if (GameManager.Instance.GravityUp)
             GameManager.Instance.SwapGravity();
 
+        PlayerControler.Instance.ResetMovement();
         player.transform.position = currentCheckpoint.position;
     }
 }

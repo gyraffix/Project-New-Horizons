@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -54,7 +55,22 @@ public class PlayerControler : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.linearVelocityX = direction * magnitude;        
+        rb.linearVelocityX = direction * magnitude;
+        if (direction == -1)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<Animator>().SetBool("Walking", true);
+        }
+        else if (direction == 1)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<Animator>().SetBool("Walking", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("Walking", false);
+        }
+
         StartCoroutine(FixedUpdateDash());
     }
 
@@ -90,6 +106,16 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
+    public void SwitchGravityTouch()
+    {
+        if (!coolDownActive)
+        {
+            StartCoroutine(GravityCooldown());
+            GameManager.Instance.SwapGravity();
+        }
+    }
+
+
     public void Dash(bool dashRight, bool universalDash)
     {
         if (universalDash)
@@ -100,7 +126,7 @@ public class PlayerControler : MonoBehaviour
         else if (dashRight)
             dashDirection.x = 1;
         else dashDirection.x = -1;
-        
+
         dashing = true;
     }
 
@@ -138,12 +164,21 @@ public class PlayerControler : MonoBehaviour
     private void Respawn()
     {
         if (Input.GetKeyDown(respawn))
-            CheckpointManager.Instance.Respawn(animationDuration);
+            CheckpointManager.Instance.Respawn();
     }
 
     private void Pause()
     {
         if (Input.GetKeyDown(pause))
             GameManager.Instance.Pause();
+    }
+
+    public void ResetMovement()
+    {
+        movingLeft = false;
+        movingRight = false;
+        direction = 0;
+
+        rb.linearVelocity = new Vector2(0, 0);
     }
 }
