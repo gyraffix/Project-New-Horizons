@@ -54,7 +54,22 @@ public class PlayerControler : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.linearVelocityX = direction * magnitude;        
+        rb.linearVelocityX = direction * magnitude;
+        if (direction == -1)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<Animator>().SetBool("Walking", true);
+        }
+        else if (direction == 1)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<Animator>().SetBool("Walking", true);
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("Walking", false);
+        }
+
         StartCoroutine(FixedUpdateDash());
     }
 
@@ -110,7 +125,7 @@ public class PlayerControler : MonoBehaviour
         else if (dashRight)
             dashDirection.x = 1;
         else dashDirection.x = -1;
-        
+
         dashing = true;
     }
 
@@ -148,7 +163,7 @@ public class PlayerControler : MonoBehaviour
     private void Respawn()
     {
         if (Input.GetKeyDown(respawn))
-            CheckpointManager.Instance.Respawn(animationDuration);
+            CheckpointManager.Instance.Respawn();
     }
 
     private void Pause()

@@ -85,11 +85,12 @@ public class GameManager : MonoBehaviour
         if (currentGravitySwitches <= 0)
             return;
 
-        if(PlayerControler.Instance.GetComponent<AffectedByGravity>().inAir)
-        currentGravitySwitches--;
+        if (PlayerControler.Instance.GetComponent<AffectedByGravity>().inAir)
+            currentGravitySwitches--;
         gravityUp = !gravityUp;
         float gravity;
-        
+        GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().flipY = !GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().flipY;
+
         if (gravityUp)
         {
             gravity = -gravityStrength;
