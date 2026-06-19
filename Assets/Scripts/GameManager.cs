@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private int currentGravitySwitches = 1;
     private bool gravityUp = false;
 
-    private int flamesCollected;
+    [SerializeField]private int flamesCollected;
 
     #region Public getters
     public static GameManager Instance { get { return instance; } }

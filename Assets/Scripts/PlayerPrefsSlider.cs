@@ -1,9 +1,9 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerPrefsSlider : MonoBehaviour
 {
-    [SerializeField] private string playerPrefName;
     [SerializeField] private Slider slider;
 
     private void Start()
@@ -13,6 +13,6 @@ public class PlayerPrefsSlider : MonoBehaviour
 
     public void UpdateSlider()
     {
-        slider.value = PlayerPrefs.GetInt(playerPrefName);
+        slider.value = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " stars");
     }
 }
