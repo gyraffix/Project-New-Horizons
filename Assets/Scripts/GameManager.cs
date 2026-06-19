@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int totalGravitySwitches = 1;
     private int currentGravitySwitches = 1;
     private bool gravityUp = false;
-    
+
+    private int flamesCollected;
 
     #region Public getters
     public static GameManager Instance { get { return instance; } }
@@ -56,6 +57,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void LevelComplete()
+    {
+        LevelComplete(flamesCollected);
+    }
+
     public void LevelComplete(int numberOfStars)
     {
         if (numberOfStars > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " stars"))
@@ -65,8 +71,14 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " time", Time.timeSinceLevelLoad);
 
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " is completed", 1);
+
+        flamesCollected = 0;
     }
 
+    public void AddFlame()
+    {
+        flamesCollected++;
+    }
 
     public void SwapGravity()
     {
