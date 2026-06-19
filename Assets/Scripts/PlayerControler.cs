@@ -81,7 +81,7 @@ public class PlayerControler : MonoBehaviour
         coolDownActive = false;
     }
 
-    private void SwitchGravity()
+    public void SwitchGravity()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !coolDownActive)
         {
