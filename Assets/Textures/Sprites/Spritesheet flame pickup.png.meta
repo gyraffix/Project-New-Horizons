@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f49d77543743e9742974059e8c10db8e
+guid: 4036588d1981a2e4e9ad091cf89e9d80
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,221 +123,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TileSheet_v1_0
+      name: Spritesheet flame pickup_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2304
+        y: 256
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9632ddde48268e4e9def97d6627febb
-      internalID: -1988301539
+      spriteID: 7d4a8ab2d04dee04d96e76b5f14b4d37
+      internalID: 1756552840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_1
+      name: Spritesheet flame pickup_1
       rect:
         serializedVersion: 2
         x: 256
-        y: 2304
+        y: 256
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12c0771879702834e8adef8726067605
-      internalID: 593531054
+      spriteID: 8be07047aee032f41966a29459a7c22c
+      internalID: -1634376246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_2
+      name: Spritesheet flame pickup_2
       rect:
         serializedVersion: 2
         x: 512
-        y: 2304
+        y: 256
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7be024e72bd206d44be828f3a2a1b8db
-      internalID: 1070863735
+      spriteID: d11f70bf7d73bba4182c174671930c3c
+      internalID: -478549636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 2304
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 128, y: -100.37491}
-        - {x: 128, y: 128}
-        - {x: -90.74997, y: 128}
-        - {x: -109.49997, y: 97.12509}
-        - {x: -109.49997, y: -70.37491}
-        - {x: -86.99997, y: -115.37491}
-        - {x: 64.25003, y: -115.37491}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42eb7b48a99e12f419b8969ab6ad2dca
-      internalID: -1291841328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSheet_v1_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 2304
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 128, y: -100.37491}
-        - {x: 128, y: 128}
-        - {x: -127.874985, y: 128}
-        - {x: -127.874985, y: -102.87491}
-        - {x: -72.874985, y: -109.12491}
-        - {x: 20.875015, y: -109.12491}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 929a624fa7d42e34fa3d52c937575214
-      internalID: 97375215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSheet_v1_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 2304
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 88.125, y: -95.37491}
-        - {x: 109.375, y: -65.37491}
-        - {x: 109.375, y: 99.62509}
-        - {x: 108.125, y: 107.12509}
-        - {x: 81.875, y: 128}
-        - {x: -128, y: 128}
-        - {x: -128, y: -101.62491}
-        - {x: 30.625, y: -115.37491}
-        - {x: 64.375, y: -115.37491}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4292f39b3f98f6e4cb3e23c7c10bb02b
-      internalID: 2050804359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSheet_v1_7
+      name: Spritesheet flame pickup_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 2048
+        y: 0
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d85692904635d3468e40cfdf6b19adf
-      internalID: -1313729356
+      spriteID: e931197f09aeac3429e2e16c723469a8
+      internalID: -1196127813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_8
+      name: Spritesheet flame pickup_4
       rect:
         serializedVersion: 2
         x: 256
-        y: 2048
+        y: 0
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e1021f88158fbe47a43407aa242f6c4
-      internalID: -1071462284
+      spriteID: 02530b811e574fb4f98a78171cfcce18
+      internalID: -456608277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_9
+      name: Spritesheet flame pickup_5
       rect:
         serializedVersion: 2
         x: 512
-        y: 2048
+        y: 0
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b11c0ad2babdbe248a06eb4176093f41
-      internalID: -122687045
+      spriteID: 70be97b68e90a51478e3569572e5fbb1
+      internalID: 1506701943
       vertices: []
       indices: 
       edges: []
@@ -346,7 +258,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1a23bf8cd83df9d43a0e4323ad8622d3
+    spriteID: 3dbece60839b4724a927c28783bd87a5
     internalID: 0
     vertices: []
     indices: 
@@ -356,25 +268,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TileSheet_v1_0: -1988301539
-      TileSheet_v1_1: 593531054
-      TileSheet_v1_10: -1101342079
-      TileSheet_v1_11: 1512423064
-      TileSheet_v1_12: 264838238
-      TileSheet_v1_13: 1481575553
-      TileSheet_v1_14: -839143099
-      TileSheet_v1_15: -2042842964
-      TileSheet_v1_16: -1745971161
-      TileSheet_v1_17: 1021483551
-      TileSheet_v1_18: 1651980998
-      TileSheet_v1_2: 1070863735
-      TileSheet_v1_3: -1291841328
-      TileSheet_v1_4: 97375215
-      TileSheet_v1_5: 2050804359
-      TileSheet_v1_6: -1114373514
-      TileSheet_v1_7: -1313729356
-      TileSheet_v1_8: -1071462284
-      TileSheet_v1_9: -122687045
+      Spritesheet flame pickup_0: 1756552840
+      Spritesheet flame pickup_1: -1634376246
+      Spritesheet flame pickup_2: -478549636
+      Spritesheet flame pickup_3: -1196127813
+      Spritesheet flame pickup_4: -456608277
+      Spritesheet flame pickup_5: 1506701943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

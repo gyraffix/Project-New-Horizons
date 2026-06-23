@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7585935651982019979}
   - component: {fileID: 2945363669184506482}
   - component: {fileID: 6989987085202021520}
-  - component: {fileID: 6382268841867764382}
   - component: {fileID: 8809986568520850180}
+  - component: {fileID: 8790383493906682227}
   - component: {fileID: 7244788236656795083}
   m_Layer: 2
   m_Name: Player
@@ -136,8 +136,31 @@ MonoBehaviour:
   inAir: 1
   gravityMult: 1
   coyoteTime: 0.125
---- !u!70 &6382268841867764382
-CapsuleCollider2D:
+--- !u!114 &8809986568520850180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503720448567493281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92996fa0f9b667c43a8c088c9b64b2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRight: 100
+  moveLeft: 97
+  respawn: 114
+  pause: 0
+  dashMagnitude: 10
+  dashDuration: 1
+  gravityCooldown: 0.3
+  magnitude: 4
+  animationDuration: 0.5
+  particleGravityUp: {fileID: 3301800300098380425}
+  particleGravityDown: {fileID: 5047978060602323871}
+--- !u!58 &8790383493906682227
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -170,32 +193,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.02, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
---- !u!114 &8809986568520850180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503720448567493281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92996fa0f9b667c43a8c088c9b64b2a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveRight: 100
-  moveLeft: 97
-  respawn: 114
-  pause: 0
-  dashMagnitude: 10
-  dashDuration: 1
-  gravityCooldown: 0.3
-  magnitude: 4
-  animationDuration: 0.5
-  particleGravityUp: {fileID: 3301800300098380425}
-  particleGravityDown: {fileID: 5047978060602323871}
+  m_Offset: {x: 0, y: 0.043891072}
+  m_Radius: 0.3891505
 --- !u!95 &7244788236656795083
 Animator:
   serializedVersion: 7
