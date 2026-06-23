@@ -10,7 +10,9 @@ using UnityEngine;
 public class AffectedByGravity : MonoBehaviour
 {
     public bool inAir;
+    [SerializeField] private float gravityMult = 1;
     [SerializeField] private float coyoteTime = 0.5f;
+
 
     void Start()
     {
@@ -43,6 +45,11 @@ public class AffectedByGravity : MonoBehaviour
         inAir = true;
         if (gameObject.CompareTag("Player"))
             GetComponent<Animator>().SetBool("Falling", true);
+    }
+
+    public float GetGravityMult()
+    {
+        return gravityMult;
     }
 
 }
