@@ -6,7 +6,7 @@ public class Hazard : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            CheckpointManager.Instance.Respawn(0.5f);
+            CheckpointManager.Instance.Respawn();
         }
     }
 }
