@@ -154,6 +154,7 @@ public class PlayerControler : MonoBehaviour
         {
             if (dashDirection.x != 0)
             {                
+                float storeVeloY = rb.linearVelocityY;
                 rb.AddForce(dashDirection * dashMagnitude, ForceMode2D.Impulse);
                 while (timer < dashDuration / 2.5f)
                 {
@@ -195,7 +196,6 @@ public class PlayerControler : MonoBehaviour
     {
         movingLeft = false;
         movingRight = false;
-        dashing = false;
         direction = 0;
 
         rb.linearVelocity = new Vector2(0, 0);

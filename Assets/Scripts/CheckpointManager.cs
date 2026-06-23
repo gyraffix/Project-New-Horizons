@@ -42,10 +42,7 @@ public class CheckpointManager : MonoBehaviour
     private IEnumerator RespawnDelay()
     {
         player.GetComponent<Animator>().SetTrigger("Dying");
-        var playerRb = player.GetComponent<Rigidbody2D>();
-        playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(animationDuration);
-        playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;       
 
         if (GameManager.Instance.GravityUp)
             GameManager.Instance.SwapGravity();
