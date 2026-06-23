@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f49d77543743e9742974059e8c10db8e
+guid: fca533d2e292c4a4383bee105457965b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,221 +123,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TileSheet_v1_0
+      name: Spritesheet fireflies_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2304
+        y: 256
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9632ddde48268e4e9def97d6627febb
-      internalID: -1988301539
+      spriteID: 2e5cf520d10250641b3a962cb4fc896c
+      internalID: 19612617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_1
+      name: Spritesheet fireflies_1
       rect:
         serializedVersion: 2
         x: 256
-        y: 2304
+        y: 256
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12c0771879702834e8adef8726067605
-      internalID: 593531054
+      spriteID: 040be2f7a350a194bbb8be5523e38753
+      internalID: -1468261817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_2
+      name: Spritesheet fireflies_2
       rect:
         serializedVersion: 2
         x: 512
-        y: 2304
+        y: 256
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7be024e72bd206d44be828f3a2a1b8db
-      internalID: 1070863735
+      spriteID: c4904bfb071ff35498cbf63f302e6950
+      internalID: -533905102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 2304
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 128, y: -100.37491}
-        - {x: 128, y: 128}
-        - {x: -90.74997, y: 128}
-        - {x: -109.49997, y: 97.12509}
-        - {x: -109.49997, y: -70.37491}
-        - {x: -86.99997, y: -115.37491}
-        - {x: 64.25003, y: -115.37491}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42eb7b48a99e12f419b8969ab6ad2dca
-      internalID: -1291841328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSheet_v1_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 2304
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 128, y: -100.37491}
-        - {x: 128, y: 128}
-        - {x: -127.874985, y: 128}
-        - {x: -127.874985, y: -102.87491}
-        - {x: -72.874985, y: -109.12491}
-        - {x: 20.875015, y: -109.12491}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 929a624fa7d42e34fa3d52c937575214
-      internalID: 97375215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSheet_v1_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 2304
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 88.125, y: -95.37491}
-        - {x: 109.375, y: -65.37491}
-        - {x: 109.375, y: 99.62509}
-        - {x: 108.125, y: 107.12509}
-        - {x: 81.875, y: 128}
-        - {x: -128, y: 128}
-        - {x: -128, y: -101.62491}
-        - {x: 30.625, y: -115.37491}
-        - {x: 64.375, y: -115.37491}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4292f39b3f98f6e4cb3e23c7c10bb02b
-      internalID: 2050804359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TileSheet_v1_7
+      name: Spritesheet fireflies_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 2048
+        y: 0
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d85692904635d3468e40cfdf6b19adf
-      internalID: -1313729356
+      spriteID: 39db4045332b75d4d8b7a2c075edf703
+      internalID: 1083924466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_8
+      name: Spritesheet fireflies_4
       rect:
         serializedVersion: 2
         x: 256
-        y: 2048
+        y: 0
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e1021f88158fbe47a43407aa242f6c4
-      internalID: -1071462284
+      spriteID: 8a086ac592d74d8468932e2daa7e83dc
+      internalID: -442607099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TileSheet_v1_9
+      name: Spritesheet fireflies_5
       rect:
         serializedVersion: 2
         x: 512
-        y: 2048
+        y: 0
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b11c0ad2babdbe248a06eb4176093f41
-      internalID: -122687045
+      spriteID: 1f3a51da09d3fb94399845373274ca4f
+      internalID: 1195568561
       vertices: []
       indices: 
       edges: []
@@ -346,7 +258,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1a23bf8cd83df9d43a0e4323ad8622d3
+    spriteID: 9ed68e322c28c4a4f99f8b4ecb7e9197
     internalID: 0
     vertices: []
     indices: 
@@ -356,25 +268,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TileSheet_v1_0: -1988301539
-      TileSheet_v1_1: 593531054
-      TileSheet_v1_10: -1101342079
-      TileSheet_v1_11: 1512423064
-      TileSheet_v1_12: 264838238
-      TileSheet_v1_13: 1481575553
-      TileSheet_v1_14: -839143099
-      TileSheet_v1_15: -2042842964
-      TileSheet_v1_16: -1745971161
-      TileSheet_v1_17: 1021483551
-      TileSheet_v1_18: 1651980998
-      TileSheet_v1_2: 1070863735
-      TileSheet_v1_3: -1291841328
-      TileSheet_v1_4: 97375215
-      TileSheet_v1_5: 2050804359
-      TileSheet_v1_6: -1114373514
-      TileSheet_v1_7: -1313729356
-      TileSheet_v1_8: -1071462284
-      TileSheet_v1_9: -122687045
+      Spritesheet fireflies_0: 19612617
+      Spritesheet fireflies_1: -1468261817
+      Spritesheet fireflies_2: -533905102
+      Spritesheet fireflies_3: 1083924466
+      Spritesheet fireflies_4: -442607099
+      Spritesheet fireflies_5: 1195568561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
