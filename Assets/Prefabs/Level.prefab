@@ -408,7 +408,7 @@ Camera:
   m_GameObject: {fileID: 807719764308367801}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -481,7 +481,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5190,8 +5190,68 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3463605199716351494, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5139419981866631271}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 503720448567493281, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6812205772832411329}
   m_SourcePrefab: {fileID: 100100000, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
+--- !u!1 &307237998261092957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 503720448567493281, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
+  m_PrefabInstance: {fileID: 197617701465456892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6812205772832411329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307237998261092957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.537
+  m_Color: {r: 1, g: 0.4222222, b: 0, a: 1}
+  m_Intensity: 1.5
+  m_LightVolumeIntensity: 0.2
+  m_LightVolumeEnabled: 1
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 1
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0.47
+  m_PointLightOuterRadius: 3.85
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!4 &3652180517520178938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3463605199716351494, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
@@ -5202,7 +5262,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8809986568520850180, guid: f7d077c6c53fab74bbcf09a32beaff9c, type: 3}
   m_PrefabInstance: {fileID: 197617701465456892}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 307237998261092957}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92996fa0f9b667c43a8c088c9b64b2a3, type: 3}
