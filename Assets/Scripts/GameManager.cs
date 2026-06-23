@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         {
             if (!obj.GetComponent<AffectedByGravity>().inAir)
                 obj.linearVelocityY = initialSwapVelocity * -gravity;
-            obj.gravityScale = gravity;
+            obj.gravityScale = gravity * obj.GetComponent<AffectedByGravity>().GetGravityMult();
         }
     }
 
