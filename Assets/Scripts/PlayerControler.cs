@@ -31,8 +31,13 @@ public class PlayerControler : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    [Header("Animation")]
+    [Header("Animation & Juice")]
     [SerializeField] private float animationDuration = 0.5f;
+    [SerializeField] private ParticleSystem particleGravityUp;
+    [SerializeField] private ParticleSystem particleGravityDown;
+
+
+
 
     #region Public getters
     public static PlayerControler Instance { get { return instance; } }
@@ -115,6 +120,17 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
+    public void RunParticles()
+    {
+        if (GameManager.Instance.GetGravity())
+        {
+            particleGravityUp.Play();
+        }
+        else
+        {
+           particleGravityDown.Play();
+        }
+    }
 
     public void Dash(bool dashRight, bool universalDash)
     {
