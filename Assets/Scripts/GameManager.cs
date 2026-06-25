@@ -145,6 +145,12 @@ public class GameManager : MonoBehaviour
         PlayerControler.Instance.ChangeIndicatorColor(hasGravityColor);
     }
 
+    public void SetGravityDown()
+    {
+        if (GravityUp)
+            SwapGravity();
+    }
+
     public void Pause()
     {
         if (Time.timeScale == 0)
