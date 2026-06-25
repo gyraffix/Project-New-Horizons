@@ -35,6 +35,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float animationDuration = 0.5f;
     [SerializeField] private ParticleSystem particleGravityUp;
     [SerializeField] private ParticleSystem particleGravityDown;
+    [SerializeField] private ParticleSystem particleDeath;
     [SerializeField] private SpriteRenderer indicator;
 
 
@@ -130,6 +131,11 @@ public class PlayerControler : MonoBehaviour
         {
            particleGravityDown.Play();
         }
+    }
+
+    public void DeathParticles()
+    {
+        particleDeath.Play();
     }
 
     public void Dash(bool dashRight, bool universalDash)
