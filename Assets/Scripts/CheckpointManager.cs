@@ -30,6 +30,7 @@ public class CheckpointManager : MonoBehaviour
         if (previousCheckpoints.Contains(checkpoint))
             return;
 
+        PlayerControler.Instance.RunParticles();
         previousCheckpoints.Add(currentCheckpoint);
         currentCheckpoint = checkpoint;
     }
@@ -53,5 +54,6 @@ public class CheckpointManager : MonoBehaviour
 
         PlayerControler.Instance.ResetMovement();
         player.transform.position = currentCheckpoint.position;
+        PlayerControler.Instance.RunParticles();
     }
 }
