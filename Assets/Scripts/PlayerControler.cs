@@ -192,9 +192,7 @@ public class PlayerControler : MonoBehaviour
     }
 
     public void ResetMovement()
-    {
-        movingLeft = false;
-        movingRight = false;
+    {        
         dashing = false;
         direction = 0;
 
