@@ -30,6 +30,7 @@ public class CheckpointManager : MonoBehaviour
         if (previousCheckpoints.Contains(checkpoint))
             return;
 
+        PlayerControler.Instance.RunParticles();
         previousCheckpoints.Add(currentCheckpoint);
         currentCheckpoint = checkpoint;
         GetComponent<AudioSource>().Play();
@@ -45,6 +46,7 @@ public class CheckpointManager : MonoBehaviour
         player.GetComponent<Animator>().SetTrigger("Dying");
         var playerRb = player.GetComponent<Rigidbody2D>();
         playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
+        PlayerControler.Instance.DeathParticles();
         yield return new WaitForSeconds(animationDuration);
         playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;       
 
@@ -53,5 +55,6 @@ public class CheckpointManager : MonoBehaviour
 
         PlayerControler.Instance.ResetMovement();
         player.transform.position = currentCheckpoint.position;
+        PlayerControler.Instance.RunParticles();
     }
 }

@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip levelCompleteSFX;
 
 
+    [SerializeField] Color hasGravityColor;
+    [SerializeField] Color noGravityColor;
+
     #region Public getters
     public static GameManager Instance { get { return instance; } }
     public bool GravityUp { get { return gravityUp; } }
@@ -93,7 +96,10 @@ public class GameManager : MonoBehaviour
             return;
 
         if (PlayerControler.Instance.GetComponent<AffectedByGravity>().inAir)
+        {
             currentGravitySwitches--;
+            PlayerControler.Instance.ChangeIndicatorColor(noGravityColor);
+        }
         gravityUp = !gravityUp;
         float gravity;
         GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().flipY = !GameObject.FindGameObjectWithTag("Player").GetComponent<SpriteRenderer>().flipY;
@@ -125,6 +131,7 @@ public class GameManager : MonoBehaviour
     public void ResetGravity()
     {
         currentGravitySwitches = totalGravitySwitches;
+        PlayerControler.Instance.ChangeIndicatorColor(hasGravityColor);
     }
 
     public void Pause()

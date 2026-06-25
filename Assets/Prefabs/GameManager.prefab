@@ -51,6 +51,10 @@ MonoBehaviour:
   initialSwapVelocity: 2
   totalGravitySwitches: 1
   flamesCollected: 0
+  hasGravityColor: {r: 1, g: 0, b: 0, a: 1}
+  noGravityColor: {r: 0, g: 0.75936747, b: 1, a: 1}
+  totalGravitySwitches: 1
+  flamesCollected: 0
 --- !u!82 &8363230608596974302
 AudioSource:
   m_ObjectHideFlags: 0
