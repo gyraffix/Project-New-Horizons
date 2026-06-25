@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4572214237394482643}
   - component: {fileID: 1462944305539652719}
-  - component: {fileID: 6453877649533996632}
+  - component: {fileID: 8533647513258262894}
   - component: {fileID: 6891494962773593191}
   m_Layer: 0
   m_Name: Goal
@@ -116,8 +116,8 @@ MonoBehaviour:
   onTriggerExit:
     m_PersistentCalls:
       m_Calls: []
---- !u!58 &6453877649533996632
-CircleCollider2D:
+--- !u!61 &8533647513258262894
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,12 +146,22 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: -0.13394928, y: 3.511818}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.2678986, y: 8.978779}
+  m_EdgeRadius: 0
 --- !u!114 &6891494962773593191
 MonoBehaviour:
   m_ObjectHideFlags: 0
