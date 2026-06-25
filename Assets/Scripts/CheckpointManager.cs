@@ -33,6 +33,7 @@ public class CheckpointManager : MonoBehaviour
         PlayerControler.Instance.RunParticles();
         previousCheckpoints.Add(currentCheckpoint);
         currentCheckpoint = checkpoint;
+        GetComponent<AudioSource>().Play();
     }
 
     public void Respawn()

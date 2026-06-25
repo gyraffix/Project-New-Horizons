@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +15,9 @@ public class GameManager : MonoBehaviour
     private int currentGravitySwitches = 1;
     private bool gravityUp = false;
 
-    [SerializeField]private int flamesCollected;
+    [SerializeField] private int flamesCollected;
+    [SerializeField] private AudioClip levelCompleteSFX;
+
 
     [SerializeField] Color hasGravityColor;
     [SerializeField] Color noGravityColor;
@@ -75,6 +76,8 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " is completed", 1);
 
+        GetComponent<AudioSource>().PlayOneShot(levelCompleteSFX, 0.2f);
+
         flamesCollected = 0;
     }
 
@@ -104,11 +107,15 @@ public class GameManager : MonoBehaviour
         if (gravityUp)
         {
             gravity = -gravityStrength;
+            GetComponent<AudioSource>().pitch = 1.03f;
         }
         else
         {
             gravity = gravityStrength;
+            GetComponent<AudioSource>().pitch = 0.97f;
         }
+
+        GetComponent<AudioSource>().Play();
 
         foreach (var obj in gravityAffectedObjects)
         {

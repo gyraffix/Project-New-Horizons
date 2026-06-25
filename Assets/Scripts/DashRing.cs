@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public class DashRing : MonoBehaviour
 {
-    private enum DashDirection { Left, Right, Universal }    
+    private enum DashDirection { Left, Right, Universal }
     [SerializeField] private string checkForTag;
-    [SerializeField] private DashDirection dashDirection = DashDirection.Left;    
+    [SerializeField] private DashDirection dashDirection = DashDirection.Left;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,12 +21,13 @@ public class DashRing : MonoBehaviour
                 dashRight = false;
                 break;
             case DashDirection.Right:
-                dashRight = true; 
+                dashRight = true;
                 break;
             case DashDirection.Universal:
                 universalDash = true;
                 break;
         }
         PlayerControler.Instance.Dash(dashRight, universalDash);
+        GetComponent<AudioSource>().Play();
     }
 }
