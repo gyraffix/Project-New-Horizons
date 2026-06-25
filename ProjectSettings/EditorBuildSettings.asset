@@ -9,12 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3cfb913e20a0ad0489882e451abf899d
   - enabled: 1
+    path: Assets/Scenes/OykuTest.unity
+    guid: 303327c4dc57a7a45a90b2fa40994f9a
+  - enabled: 1
+    path: Assets/Scenes/OykuTest 2.unity
+    guid: ed61bbe37d871b24982f3902372f3d4f
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DylanTest.unity
     guid: 8993aa2de3c8d2645a213639cf48722c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestSceneTies.unity
     guid: df2fe4671a43d7a4ca271feb193da7ce
   m_configObjects:

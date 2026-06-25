@@ -31,8 +31,13 @@ public class PlayerControler : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    [Header("Animation")]
+    [Header("Animation & Juice")]
     [SerializeField] private float animationDuration = 0.5f;
+    [SerializeField] private ParticleSystem particleGravityUp;
+    [SerializeField] private ParticleSystem particleGravityDown;
+
+
+
 
     #region Public getters
     public static PlayerControler Instance { get { return instance; } }
@@ -115,6 +120,17 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
+    public void RunParticles()
+    {
+        if (GameManager.Instance.GetGravity())
+        {
+            particleGravityUp.Play();
+        }
+        else
+        {
+           particleGravityDown.Play();
+        }
+    }
 
     public void Dash(bool dashRight, bool universalDash)
     {
@@ -136,17 +152,19 @@ public class PlayerControler : MonoBehaviour
     {
         if (dashing)
         {
-            float storeVeloY = rb.linearVelocityY;
-            rb.AddForce(dashDirection * dashMagnitude, ForceMode2D.Impulse);
-            while (timer < dashDuration / 2.5f)
-            {
-                rb.linearVelocityY = 0;
-                yield return new WaitForFixedUpdate();
-                timer += Time.fixedDeltaTime;
-            }
-            yield return new WaitForSeconds(dashDuration / 1.5f);
+            if (dashDirection.x != 0)
+            {                
+                rb.AddForce(dashDirection * dashMagnitude, ForceMode2D.Impulse);
+                while (timer < dashDuration / 2.5f)
+                {
+                    rb.linearVelocityY = 0;
+                    yield return new WaitForFixedUpdate();
+                    timer += Time.fixedDeltaTime;
+                }
+                yield return new WaitForSeconds(dashDuration / 1.5f);
 
-            dashing = false;            
+                dashing = false;            
+            }
         }
         else timer = 0;
     }
@@ -174,9 +192,8 @@ public class PlayerControler : MonoBehaviour
     }
 
     public void ResetMovement()
-    {
-        movingLeft = false;
-        movingRight = false;
+    {        
+        dashing = false;
         direction = 0;
 
         rb.linearVelocity = new Vector2(0, 0);

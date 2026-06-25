@@ -82,6 +82,10 @@ public class GameManager : MonoBehaviour
     {
         flamesCollected++;
     }
+    public bool GetGravity()
+    {
+        return gravityUp;
+    }
 
     public void SwapGravity()
     {
@@ -111,8 +115,11 @@ public class GameManager : MonoBehaviour
         {
             if (!obj.GetComponent<AffectedByGravity>().inAir)
                 obj.linearVelocityY = initialSwapVelocity * -gravity;
-            obj.gravityScale = gravity;
+            else obj.linearVelocityY = obj.linearVelocityY/4;
+            obj.gravityScale = gravity * obj.GetComponent<AffectedByGravity>().GetGravityMult();
         }
+
+        PlayerControler.Instance.RunParticles();
     }
 
     public void ResetGravity()

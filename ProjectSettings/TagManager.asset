@@ -44,6 +44,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: No Player
+    uniqueID: 4238285641
+    locked: 0
+  - name: PostFX
+    uniqueID: 3495439345
+    locked: 0
   m_RenderingLayers:
   - Default
   - Light Layer 1
