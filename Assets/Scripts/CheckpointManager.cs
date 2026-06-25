@@ -44,6 +44,7 @@ public class CheckpointManager : MonoBehaviour
         player.GetComponent<Animator>().SetTrigger("Dying");
         var playerRb = player.GetComponent<Rigidbody2D>();
         playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
+        PlayerControler.Instance.DeathParticles();
         yield return new WaitForSeconds(animationDuration);
         playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;       
 

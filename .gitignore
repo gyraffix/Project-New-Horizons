@@ -65,3 +65,7 @@ crashlytics-build.properties
 
 [Uu]serSettings/[Ll]ayouts/default-6000.dwlt
 UserSettings/EditorUserSettings.asset
+
+BuildOld/Build/
+
+BuildOld/
