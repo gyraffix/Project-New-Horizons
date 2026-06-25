@@ -47,3 +47,7 @@ MonoBehaviour:
   gravityAffectedObjects: []
   gravityStrength: 1
   initialSwapVelocity: 2
+  totalGravitySwitches: 1
+  flamesCollected: 0
+  hasGravityColor: {r: 1, g: 0, b: 0, a: 1}
+  noGravityColor: {r: 0, g: 0.75936747, b: 1, a: 1}

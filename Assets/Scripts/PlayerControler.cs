@@ -35,7 +35,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float animationDuration = 0.5f;
     [SerializeField] private ParticleSystem particleGravityUp;
     [SerializeField] private ParticleSystem particleGravityDown;
-
+    [SerializeField] private SpriteRenderer indicator;
 
 
 
@@ -197,5 +197,10 @@ public class PlayerControler : MonoBehaviour
         direction = 0;
 
         rb.linearVelocity = new Vector2(0, 0);
+    }
+
+    public void ChangeIndicatorColor(Color color)
+    {
+        indicator.color = color;
     }
 }
