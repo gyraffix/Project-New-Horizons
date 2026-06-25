@@ -35,35 +35,40 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(nextSceneKey))
         {
-            Debug.Log("Pressed");
+            GameManager.Instance.SetGravityDown();
             NextScene();
         }
         if (Input.GetKeyDown(prevSceneKey))
         {
+            GameManager.Instance.SetGravityDown();
             PreviousScene();
         }
     }
 
     public void SwitchScene(int buildIndex)
     {
+        GameManager.Instance.SetGravityDown();
         SceneManager.LoadScene(buildIndex);
     }
 
     
     public void ReloadScene()
     {
+        GameManager.Instance.SetGravityDown();
         var curScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(curScene.name);
     }
 
     public void NextScene()
     {
+        GameManager.Instance.SetGravityDown();
         var curScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(curScene.buildIndex + 1);
     }
 
     public void PreviousScene()
     {
+        GameManager.Instance.SetGravityDown();
         var curScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(curScene.buildIndex - 1);
     }

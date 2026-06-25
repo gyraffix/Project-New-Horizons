@@ -81,6 +81,17 @@ public class GameManager : MonoBehaviour
         flamesCollected = 0;
     }
 
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.Backspace))
+        {
+            ResetPlayerPrefs();
+        }
+    }
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
     public void AddFlame()
     {
         flamesCollected++;
@@ -132,6 +143,12 @@ public class GameManager : MonoBehaviour
     {
         currentGravitySwitches = totalGravitySwitches;
         PlayerControler.Instance.ChangeIndicatorColor(hasGravityColor);
+    }
+
+    public void SetGravityDown()
+    {
+        if (GravityUp)
+            SwapGravity();
     }
 
     public void Pause()
