@@ -32,6 +32,7 @@ public class CheckpointManager : MonoBehaviour
 
         previousCheckpoints.Add(currentCheckpoint);
         currentCheckpoint = checkpoint;
+        GetComponent<AudioSource>().Play();
     }
 
     public void Respawn()
