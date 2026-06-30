@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1766375504117572050}
 >>>>>>> origin/main
   m_Layer: 0
-  m_Name: Flame Collectable
+  m_Name: Flame Collectable.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
