@@ -57,6 +57,8 @@ MonoBehaviour:
   musicStart: {fileID: 8300000, guid: ddaba8418ce1b4822baec1577620da63, type: 3}
   generalSounds: {fileID: 8363230608596974302}
   musicLoop: {fileID: 1508630986348447130}
+  SFXAudio: {fileID: -1208365552518545367, guid: cf202e806300dcf4b8f3e64450af1d1a, type: 2}
+  BackgroundAudio: {fileID: 4817739563897703127, guid: cf202e806300dcf4b8f3e64450af1d1a, type: 2}
   hasGravityColor: {r: 1, g: 0, b: 0, a: 1}
   noGravityColor: {r: 0, g: 0.75936747, b: 1, a: 1}
   hasSeenIntro: 0
@@ -69,7 +71,7 @@ AudioSource:
   m_GameObject: {fileID: 3920532218068277109}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1208365552518545367, guid: cf202e806300dcf4b8f3e64450af1d1a, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: cdce9245e3d9b4cfba9d839221278926, type: 3}
   m_PlayOnAwake: 0
@@ -166,7 +168,7 @@ AudioSource:
   m_GameObject: {fileID: 3920532218068277109}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4817739563897703127, guid: cf202e806300dcf4b8f3e64450af1d1a, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 4c5820f1c92b84e558b20873f7dd2518, type: 3}
   m_PlayOnAwake: 0
