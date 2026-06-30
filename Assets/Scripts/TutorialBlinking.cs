@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class TutorialBlinking : MonoBehaviour
 {
-    [SerializeField] private RawImage blinker;
-    [SerializeField] private float blinkSpeed;
+    [SerializeField] private Image blinker;
 
     private bool tutorial = true;
 
