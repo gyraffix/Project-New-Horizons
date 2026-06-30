@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int flamesCollected;
 
-    [Header("Sound")]
+    [Header("Sound")]    
     [SerializeField] private AudioClip levelCompleteSFX;
     [SerializeField] private AudioClip gravSwitchSFX;
     [SerializeField] private AudioClip flameSFX;
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource generalSounds;
     [SerializeField] private AudioSource musicLoop;
 
+    [SerializeField] private AudioMixerGroup SFXAudio;
+    [SerializeField] private AudioMixerGroup BackgroundAudio;
 
 
     [Header("Player Variables")]
@@ -57,6 +60,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartMusic());
+
+        AssigningMixers();
+    }
+
+    private void AssigningMixers()
+    {
+        generalSounds.outputAudioMixerGroup = SFXAudio;
+        musicLoop.outputAudioMixerGroup = BackgroundAudio;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

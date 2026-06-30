@@ -25,8 +25,7 @@ public class PlayerPrefsTime : MonoBehaviour
             playerPrefName = SceneManager.GetActiveScene().name;            
         }
         if (PlayerPrefs.GetFloat(playerPrefName + " time")  != 0)
-        {
-            Debug.Log(PlayerPrefs.GetFloat(playerPrefName + " time"));
+        {            
             text.text = "Best time: " + SectondsToString(PlayerPrefs.GetFloat(playerPrefName + " time"));
         }
         else
