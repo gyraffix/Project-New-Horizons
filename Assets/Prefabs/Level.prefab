@@ -5876,7 +5876,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -6145,7 +6145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d0dd1f254fd45d7aa408c750ddd359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefName: TestSceneTies
+  playerPrefName: 
   text: {fileID: 1229690861074274141}
   timeType: 0
 --- !u!1 &8260266233731286040
@@ -6715,7 +6715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d0dd1f254fd45d7aa408c750ddd359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefName: TestSceneTies
+  playerPrefName: 
   text: {fileID: 7437301527070879420}
   timeType: 1
 --- !u!1 &8878685077316278199

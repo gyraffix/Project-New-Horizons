@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPrefsTime : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class PlayerPrefsTime : MonoBehaviour
 
     public void UpdateBestTimeSlider()
     {
+        if (playerPrefName == "")
+        {
+            playerPrefName = SceneManager.GetActiveScene().name;            
+        }
         if (PlayerPrefs.GetFloat(playerPrefName + " time")  != 0)
         {
             Debug.Log(PlayerPrefs.GetFloat(playerPrefName + " time"));
@@ -26,7 +31,7 @@ public class PlayerPrefsTime : MonoBehaviour
         }
         else
         {
-            text.text = "Best time: -";
+            text.text = "Best time: 0:00";
         }
     }
 
