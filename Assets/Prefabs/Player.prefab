@@ -122,7 +122,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6989987085202021520
 MonoBehaviour:
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inAir: 1
   gravityMult: 1
+  hitboxCheckLength: 0.48
   coyoteTime: 0.125
 --- !u!114 &8809986568520850180
 MonoBehaviour:
@@ -200,8 +201,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.043891072}
-  m_Radius: 0.3891505
+  m_Offset: {x: 0, y: -0.065205455}
+  m_Radius: 0.4088236
 --- !u!95 &7244788236656795083
 Animator:
   serializedVersion: 7
