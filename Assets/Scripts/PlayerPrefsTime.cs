@@ -7,21 +7,32 @@ public class PlayerPrefsTime : MonoBehaviour
     [SerializeField] private string playerPrefName;
     [SerializeField] private TMP_Text text;
 
+    [SerializeField] private enum TimeType { CurrentTime, BestTime };
+    [SerializeField] private TimeType timeType;
     private void Start()
     {
-        UpdateSlider();
+        if (timeType == TimeType.CurrentTime)
+            UpdateCurretnTimeSlider();
+        else
+            UpdateBestTimeSlider();
     }
 
-    public void UpdateSlider()
+    public void UpdateBestTimeSlider()
     {
-        if (PlayerPrefs.GetFloat(playerPrefName) != 0)
+        if (PlayerPrefs.GetFloat(playerPrefName + " time")  != 0)
         {
-            text.text = "Best time: " + SectondsToString(PlayerPrefs.GetFloat(playerPrefName));
+            Debug.Log(PlayerPrefs.GetFloat(playerPrefName + " time"));
+            text.text = "Best time: " + SectondsToString(PlayerPrefs.GetFloat(playerPrefName + " time"));
         }
         else
         {
             text.text = "Best time: -";
         }
+    }
+
+    public void UpdateCurretnTimeSlider()
+    {
+        text.text = "Current time: " + SectondsToString(Time.timeSinceLevelLoad);
     }
 
     public string SectondsToString(float timeSeconds)
