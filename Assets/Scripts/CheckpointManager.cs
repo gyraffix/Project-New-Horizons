@@ -55,7 +55,7 @@ public class CheckpointManager : MonoBehaviour
         playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         if (GameManager.Instance.GravityUp)
-            GameManager.Instance.SwapGravity();
+            GameManager.Instance.ForceSwapGravity();
 
         PlayerControler.Instance.ResetMovement();
         player.transform.position = currentCheckpoint.position;

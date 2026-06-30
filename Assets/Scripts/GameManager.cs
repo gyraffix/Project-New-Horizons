@@ -119,11 +119,8 @@ public class GameManager : MonoBehaviour
         return gravityUp;
     }
 
-    public void SwapGravity()
+    public void ForceSwapGravity()
     {
-        if (currentGravitySwitches <= 0)
-            return;
-
         if (PlayerControler.Instance.GetComponent<AffectedByGravity>().inAir)
         {
             currentGravitySwitches--;
@@ -162,6 +159,14 @@ public class GameManager : MonoBehaviour
         generalSounds.PlayOneShot(musicStart, 0.2f);
         yield return new WaitForSeconds(musicStart.length);
         musicLoop.Play();
+    }
+
+    public void SwapGravity()
+    {
+        if (currentGravitySwitches <= 0 || Time.timeScale < 0.5f)
+            return;
+
+        ForceSwapGravity();
     }
 
     public void ResetGravity()
