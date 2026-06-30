@@ -158,4 +158,9 @@ public class GameManager : MonoBehaviour
         else
             Time.timeScale = 0;
     }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+    }
 }
