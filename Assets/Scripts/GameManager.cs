@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    private int flamesCollected;
 
 
     [Header("Gravity Variables")]
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour
 
         if (Time.timeSinceLevelLoad < (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " is completed") == 0 ? Mathf.Infinity : PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " time")))
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " time", Time.timeSinceLevelLoad);
-        
+
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " is completed", 1);
 
         generalSounds.PlayOneShot(levelCompleteSFX, 0.2f);
