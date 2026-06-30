@@ -164,6 +164,8 @@ MonoBehaviour:
   particleGravityDown: {fileID: 5047978060602323871}
   particleDeath: {fileID: 4107558022606625312}
   indicator: {fileID: 1746318429374848729}
+  pauseButton: {fileID: 0}
+  resumeButton: {fileID: 0}
 --- !u!58 &8790383493906682227
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,7 +182,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
