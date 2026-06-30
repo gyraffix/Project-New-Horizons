@@ -45,17 +45,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8394035ebb3ff49c288c8ee00f3ef3e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips:
-  - {fileID: 8300000, guid: 11c1fe8b875644a979578415eac88553, type: 3}
-  - {fileID: 8300000, guid: df7142ec00df348a08d432dd79a20d89, type: 3}
-  - {fileID: 8300000, guid: ff6d831d56fba412395967a85c08b7bd, type: 3}
-  - {fileID: 8300000, guid: 0e4f69751ec084a7bad72cdf6924bdae, type: 3}
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 88c6becaee37a43deb868c57a46ad4ab, type: 3}
+    volume: 0.01
+    weight: 1
+  - audioClip: {fileID: 8300000, guid: 4e56ec03163b24269941f4478d1a0f1f, type: 3}
+    volume: 0.05
+    weight: 2
+  - audioClip: {fileID: 8300000, guid: 77db4941f1c004f67a7e6f1841e690dd, type: 3}
+    volume: 0.1
+    weight: 2
+  - audioClip: {fileID: 8300000, guid: b3062302a20564a4f9b8a2c8e34197c5, type: 3}
+    volume: 0.1
+    weight: 2
+  - audioClip: {fileID: 8300000, guid: 46ec8908ef7c546838f2d89e522ce792, type: 3}
+    volume: 0.25
+    weight: 2
+  - audioClip: {fileID: 8300000, guid: 77f8dfe809b4a41ec9ae7ffc10ce0c9f, type: 3}
+    volume: 0.12
+    weight: 1
   randomInterval: {x: 5, y: 10}
-  volumes:
-  - 0.15
-  - 0.1
-  - 0.3
-  - 0.15
 --- !u!82 &4228343511048172646
 AudioSource:
   m_ObjectHideFlags: 0
@@ -67,7 +76,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 0d8626678d8994831811282dfd03fb05, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
