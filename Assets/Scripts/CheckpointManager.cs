@@ -22,17 +22,21 @@ public class CheckpointManager : MonoBehaviour
 
     private void Start()
     {
+        GameObject start = Instantiate(new GameObject("Start"));
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControler>();
+
+        start.transform.position = player.transform.position;
+        currentCheckpoint = start.transform;
     }
 
     public void SetCheckpoint(Transform checkpoint)
     {
         if (previousCheckpoints.Contains(checkpoint))
             return;
-
+        Debug.Log("check");
         PlayerControler.Instance.RunParticles();
-        previousCheckpoints.Add(currentCheckpoint);
         currentCheckpoint = checkpoint;
+        previousCheckpoints.Add(currentCheckpoint);
         GetComponent<AudioSource>().Play();
     }
 
@@ -48,7 +52,7 @@ public class CheckpointManager : MonoBehaviour
         playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
         PlayerControler.Instance.DeathParticles();
         yield return new WaitForSeconds(animationDuration);
-        playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;       
+        playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         if (GameManager.Instance.GravityUp)
             GameManager.Instance.SwapGravity();

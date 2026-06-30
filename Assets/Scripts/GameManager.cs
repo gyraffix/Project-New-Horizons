@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,7 +17,14 @@ public class GameManager : MonoBehaviour
     private bool gravityUp = false;
 
     [SerializeField] private int flamesCollected;
+
+    [Header("Sound")]
     [SerializeField] private AudioClip levelCompleteSFX;
+    [SerializeField] private AudioClip gravSwitchSFX;
+    [SerializeField] private AudioClip flameSFX;
+    [SerializeField] private AudioClip musicStart;
+    [SerializeField] private AudioSource generalSounds;
+    [SerializeField] private AudioSource musicLoop;
 
 
     [SerializeField] Color hasGravityColor;
@@ -41,6 +49,11 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        StartCoroutine(StartMusic());
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -76,7 +89,7 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " is completed", 1);
 
-        GetComponent<AudioSource>().PlayOneShot(levelCompleteSFX, 0.2f);
+        generalSounds.PlayOneShot(levelCompleteSFX, 0.2f);
 
         flamesCollected = 0;
     }
@@ -94,6 +107,7 @@ public class GameManager : MonoBehaviour
     }
     public void AddFlame()
     {
+        generalSounds.PlayOneShot(flameSFX, 0.6f);
         flamesCollected++;
     }
     public bool GetGravity()
@@ -118,25 +132,32 @@ public class GameManager : MonoBehaviour
         if (gravityUp)
         {
             gravity = -gravityStrength;
-            GetComponent<AudioSource>().pitch = 1.03f;
+            generalSounds.pitch = 1.03f;
         }
         else
         {
             gravity = gravityStrength;
-            GetComponent<AudioSource>().pitch = 0.97f;
+            generalSounds.pitch = 0.97f;
         }
-
-        GetComponent<AudioSource>().Play();
+        generalSounds.volume = 0.4f;
+        generalSounds.clip = gravSwitchSFX;
+        generalSounds.Play();
 
         foreach (var obj in gravityAffectedObjects)
         {
             if (!obj.GetComponent<AffectedByGravity>().inAir)
                 obj.linearVelocityY = initialSwapVelocity * -gravity;
-            else obj.linearVelocityY = obj.linearVelocityY/4;
+            else obj.linearVelocityY = obj.linearVelocityY / 4;
             obj.gravityScale = gravity * obj.GetComponent<AffectedByGravity>().GetGravityMult();
         }
 
         PlayerControler.Instance.RunParticles();
+    }
+    private IEnumerator StartMusic()
+    {
+        generalSounds.PlayOneShot(musicStart, 0.2f);
+        yield return new WaitForSeconds(musicStart.length);
+        musicLoop.Play();
     }
 
     public void ResetGravity()
