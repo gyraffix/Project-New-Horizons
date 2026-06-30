@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,10 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
 
 
     [Header("Gravity Variables")]
+    [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
     [SerializeField] private float gravityStrength = 1f;
     [SerializeField] private float initialSwapVelocity = 1f;
     [SerializeField] private int totalGravitySwitches = 1;
@@ -16,11 +17,21 @@ public class GameManager : MonoBehaviour
     private bool gravityUp = false;
 
     [SerializeField] private int flamesCollected;
+
+    [Header("Sound")]
     [SerializeField] private AudioClip levelCompleteSFX;
+    [SerializeField] private AudioClip gravSwitchSFX;
+    [SerializeField] private AudioClip flameSFX;
+    [SerializeField] private AudioClip musicStart;
+    [SerializeField] private AudioSource generalSounds;
+    [SerializeField] private AudioSource musicLoop;
 
 
+
+    [Header("Player Variables")]
     [SerializeField] Color hasGravityColor;
     [SerializeField] Color noGravityColor;
+    [HideInInspector] public bool hasSeenIntro = false;
 
     #region Public getters
     public static GameManager Instance { get { return instance; } }
@@ -43,9 +54,15 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        StartCoroutine(StartMusic());
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         gravityAffectedObjects = new();
+        Time.timeScale = 1;
     }
 
     public void AddGravityAffectedObj(Rigidbody2D gameObject)
@@ -76,7 +93,7 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " is completed", 1);
 
-        GetComponent<AudioSource>().PlayOneShot(levelCompleteSFX, 0.2f);
+        generalSounds.PlayOneShot(levelCompleteSFX, 0.2f);
 
         flamesCollected = 0;
     }
@@ -94,6 +111,7 @@ public class GameManager : MonoBehaviour
     }
     public void AddFlame()
     {
+        generalSounds.PlayOneShot(flameSFX, 0.6f);
         flamesCollected++;
     }
     public bool GetGravity()
@@ -101,11 +119,8 @@ public class GameManager : MonoBehaviour
         return gravityUp;
     }
 
-    public void SwapGravity()
+    public void ForceSwapGravity()
     {
-        if (currentGravitySwitches <= 0)
-            return;
-
         if (PlayerControler.Instance.GetComponent<AffectedByGravity>().inAir)
         {
             currentGravitySwitches--;
@@ -118,25 +133,40 @@ public class GameManager : MonoBehaviour
         if (gravityUp)
         {
             gravity = -gravityStrength;
-            GetComponent<AudioSource>().pitch = 1.03f;
+            generalSounds.pitch = 1.03f;
         }
         else
         {
             gravity = gravityStrength;
-            GetComponent<AudioSource>().pitch = 0.97f;
+            generalSounds.pitch = 0.97f;
         }
-
-        GetComponent<AudioSource>().Play();
+        generalSounds.volume = 0.4f;
+        generalSounds.clip = gravSwitchSFX;
+        generalSounds.Play();
 
         foreach (var obj in gravityAffectedObjects)
         {
             if (!obj.GetComponent<AffectedByGravity>().inAir)
                 obj.linearVelocityY = initialSwapVelocity * -gravity;
-            else obj.linearVelocityY = obj.linearVelocityY/4;
+            else obj.linearVelocityY = obj.linearVelocityY / 4;
             obj.gravityScale = gravity * obj.GetComponent<AffectedByGravity>().GetGravityMult();
         }
 
         PlayerControler.Instance.RunParticles();
+    }
+    private IEnumerator StartMusic()
+    {
+        generalSounds.PlayOneShot(musicStart, 0.2f);
+        yield return new WaitForSeconds(musicStart.length);
+        musicLoop.Play();
+    }
+
+    public void SwapGravity()
+    {
+        if (currentGravitySwitches <= 0 || Time.timeScale < 0.5f)
+            return;
+
+        ForceSwapGravity();
     }
 
     public void ResetGravity()
@@ -162,5 +192,9 @@ public class GameManager : MonoBehaviour
     public void Unpause()
     {
         Time.timeScale = 1;
+    }
+    public void ToggleIntro()
+    {
+        hasSeenIntro = true;
     }
 }

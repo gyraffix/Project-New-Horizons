@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 751666562261212371}
   - component: {fileID: 8340280619021812917}
   - component: {fileID: 8363230608596974302}
-  - component: {fileID: 7071685055960098792}
+  - component: {fileID: 1508630986348447130}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -51,10 +51,15 @@ MonoBehaviour:
   initialSwapVelocity: 2
   totalGravitySwitches: 1
   flamesCollected: 0
+  levelCompleteSFX: {fileID: 8300000, guid: 0a878ecdddb6f423ca81e57672e4a911, type: 3}
+  gravSwitchSFX: {fileID: 8300000, guid: cdce9245e3d9b4cfba9d839221278926, type: 3}
+  flameSFX: {fileID: 8300000, guid: bca8a633a44ef4b9bb08c45913689e99, type: 3}
+  musicStart: {fileID: 8300000, guid: ddaba8418ce1b4822baec1577620da63, type: 3}
+  generalSounds: {fileID: 8363230608596974302}
+  musicLoop: {fileID: 1508630986348447130}
   hasGravityColor: {r: 1, g: 0, b: 0, a: 1}
   noGravityColor: {r: 0, g: 0.75936747, b: 1, a: 1}
-  totalGravitySwitches: 1
-  flamesCollected: 0
+  hasSeenIntro: 0
 --- !u!82 &8363230608596974302
 AudioSource:
   m_ObjectHideFlags: 0
@@ -152,7 +157,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &7071685055960098792
+--- !u!82 &1508630986348447130
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,11 +168,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 0a878ecdddb6f423ca81e57672e4a911, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4c5820f1c92b84e558b20873f7dd2518, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -37,8 +37,8 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private ParticleSystem particleGravityDown;
     [SerializeField] private ParticleSystem particleDeath;
     [SerializeField] private SpriteRenderer indicator;
-
-
+    [SerializeField] private ActivateButton pauseButton;
+    [SerializeField] private ActivateButton resumeButton;
 
     #region Public getters
     public static PlayerControler Instance { get { return instance; } }
@@ -194,7 +194,17 @@ public class PlayerControler : MonoBehaviour
     private void Pause()
     {
         if (Input.GetKeyDown(pause))
-            GameManager.Instance.Pause();
+        {
+            if (Time.timeScale >0.5f)
+            {
+                pauseButton.Press();
+
+            }
+            else
+            {
+                resumeButton.Press();
+            }
+        }
     }
 
     public void ResetMovement()
