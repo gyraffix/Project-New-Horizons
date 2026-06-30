@@ -6,10 +6,17 @@ using UnityEngine.UI;
 
 public class TutorialBlinking : MonoBehaviour
 {
-    [SerializeField] private RawImage blinker;
-    [SerializeField] private float blinkSpeed;
+    [SerializeField] private Image blinker;
 
     private bool tutorial = true;
+
+    private void Start()
+    {
+        if (GameManager.Instance.hasSeenIntro)
+        {
+            EndTutorial();
+        }
+    }
 
     private void Update()
     {

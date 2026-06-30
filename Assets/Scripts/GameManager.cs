@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
+    private int flamesCollected;
 
 
     [Header("Gravity Variables")]
+    [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
     [SerializeField] private float gravityStrength = 1f;
     [SerializeField] private float initialSwapVelocity = 1f;
     [SerializeField] private int totalGravitySwitches = 1;
@@ -27,8 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource musicLoop;
 
 
+
+    [Header("Player Variables")]
     [SerializeField] Color hasGravityColor;
     [SerializeField] Color noGravityColor;
+    [HideInInspector] public bool hasSeenIntro = false;
 
     #region Public getters
     public static GameManager Instance { get { return instance; } }
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         gravityAffectedObjects = new();
+        Time.timeScale = 1;
     }
 
     public void AddGravityAffectedObj(Rigidbody2D gameObject)
@@ -86,7 +91,7 @@ public class GameManager : MonoBehaviour
 
         if (Time.timeSinceLevelLoad < (PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + " is completed") == 0 ? Mathf.Infinity : PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + " time")))
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + " time", Time.timeSinceLevelLoad);
-
+        
         PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + " is completed", 1);
 
         generalSounds.PlayOneShot(levelCompleteSFX, 0.2f);
@@ -178,5 +183,14 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         else
             Time.timeScale = 0;
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+    }
+    public void ToggleIntro()
+    {
+        hasSeenIntro = true;
     }
 }

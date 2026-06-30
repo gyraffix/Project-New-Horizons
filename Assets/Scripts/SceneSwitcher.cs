@@ -35,41 +35,57 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(nextSceneKey))
         {
-            GameManager.Instance.SetGravityDown();
+            CallGravityDown();
+            CallUnpause();
             NextScene();
         }
         if (Input.GetKeyDown(prevSceneKey))
         {
-            GameManager.Instance.SetGravityDown();
+            CallGravityDown();
+            CallUnpause();
             PreviousScene();
         }
     }
 
     public void SwitchScene(int buildIndex)
     {
-        GameManager.Instance.SetGravityDown();
+        CallGravityDown();
+        CallUnpause();
         SceneManager.LoadScene(buildIndex);
     }
 
     
     public void ReloadScene()
     {
-        GameManager.Instance.SetGravityDown();
+        CallGravityDown();
+        CallUnpause();
         var curScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(curScene.name);
     }
 
     public void NextScene()
     {
-        GameManager.Instance.SetGravityDown();
+        CallGravityDown();
+        CallUnpause();
         var curScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(curScene.buildIndex + 1);
     }
 
     public void PreviousScene()
     {
-        GameManager.Instance.SetGravityDown();
+        CallGravityDown();
+        CallUnpause();
         var curScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(curScene.buildIndex - 1);
+    }
+
+    private void CallGravityDown()
+    {
+        GameManager.Instance.SetGravityDown();
+    }
+
+    private void CallUnpause()
+    {
+        GameManager.Instance.Unpause();
     }
 }
