@@ -5,22 +5,27 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
+    private int flamesCollected;
 
 
     [Header("Gravity Variables")]
+    [SerializeField] private List<Rigidbody2D> gravityAffectedObjects = new();
     [SerializeField] private float gravityStrength = 1f;
     [SerializeField] private float initialSwapVelocity = 1f;
     [SerializeField] private int totalGravitySwitches = 1;
     private int currentGravitySwitches = 1;
     private bool gravityUp = false;
 
-    [SerializeField] private int flamesCollected;
+
+    [Header("Audio Variables")]
     [SerializeField] private AudioClip levelCompleteSFX;
 
 
+
+    [Header("Player Variables")]
     [SerializeField] Color hasGravityColor;
     [SerializeField] Color noGravityColor;
+    [HideInInspector] public bool hasSeenIntro = false;
 
     #region Public getters
     public static GameManager Instance { get { return instance; } }
@@ -46,6 +51,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         gravityAffectedObjects = new();
+        Time.timeScale = 1;
     }
 
     public void AddGravityAffectedObj(Rigidbody2D gameObject)
@@ -162,5 +168,9 @@ public class GameManager : MonoBehaviour
     public void Unpause()
     {
         Time.timeScale = 1;
+    }
+    public void ToggleIntro()
+    {
+        hasSeenIntro = true;
     }
 }

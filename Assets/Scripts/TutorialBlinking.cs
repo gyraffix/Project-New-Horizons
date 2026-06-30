@@ -10,6 +10,14 @@ public class TutorialBlinking : MonoBehaviour
 
     private bool tutorial = true;
 
+    private void Start()
+    {
+        if (GameManager.Instance.hasSeenIntro)
+        {
+            EndTutorial();
+        }
+    }
+
     private void Update()
     {
         if (!tutorial)
