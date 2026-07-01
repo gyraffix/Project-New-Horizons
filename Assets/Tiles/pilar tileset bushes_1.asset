@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: bush tilemap_1
+  m_Name: pilar tileset bushes_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1885939843, guid: 6e71f80a1ac82b041be5d83bc7d74eef, type: 3}
+  m_Sprite: {fileID: -495558322, guid: 55866ce552546f24fb685c89d3fff437, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

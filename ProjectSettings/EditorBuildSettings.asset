@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OykuTest 3.unity
     guid: 7e8a6cb925740fb41be96b9b6d0dc30a
+<<<<<<< Updated upstream
+=======
+  - enabled: 1
+    path: Assets/Scenes/OykuTest 4.unity
+    guid: 1b9f999a88ed7dd4882b467e94f871d9
+>>>>>>> Stashed changes
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
