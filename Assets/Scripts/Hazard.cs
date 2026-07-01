@@ -7,6 +7,7 @@ public class Hazard : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             CheckpointManager.Instance.Respawn();
+            GetComponent<AudioSource>().Play();
         }
     }
 }
