@@ -10,6 +10,7 @@ Shader "Custom/URP/BurningAreaShader"
         LOD 100
         ZWrite Off
         ZTest LEqual
+        Blend SrcAlpha OneMinusSrcAlpha
 
         Stencil
         {
