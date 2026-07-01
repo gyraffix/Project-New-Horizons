@@ -11,6 +11,7 @@ public class AffectedByGravity : MonoBehaviour
 {
     public bool inAir;
     [SerializeField] private float gravityMult = 1;
+    [SerializeField] private float hitboxCheckLength = 0.5f;
     [SerializeField] private float coyoteTime = 0.5f;
 
 
@@ -25,13 +26,17 @@ public class AffectedByGravity : MonoBehaviour
         {
             RaycastHit2D hitLeft = Physics2D.Raycast(transform.position + Vector3.left * 0.5f + Vector3.down * 0.6f, Vector2.up, 1.2f);
             RaycastHit2D hitRight = Physics2D.Raycast(transform.position + Vector3.right * 0.5f + Vector3.down * 0.6f, Vector2.up, 1.2f);
-            RaycastHit2D hitUp = Physics2D.Raycast(transform.position + Vector3.left * 0.3f + Vector3.up * 0.45f, Vector3.right, 0.6f);
-            RaycastHit2D hitDown = Physics2D.Raycast(transform.position + Vector3.left * 0.3f - Vector3.up * 0.45f, Vector3.right, 0.6f);
+            
+            RaycastHit2D hitUpL = Physics2D.Raycast(transform.position + Vector3.left * 0.3f, Vector3.up, hitboxCheckLength);
+            RaycastHit2D hitUpR = Physics2D.Raycast(transform.position + Vector3.right * 0.3f, Vector3.up, hitboxCheckLength);
+            RaycastHit2D hitDownL = Physics2D.Raycast(transform.position + Vector3.left * 0.3f, Vector3.down, hitboxCheckLength);
+            RaycastHit2D hitDownR = Physics2D.Raycast(transform.position + Vector3.right * 0.3f, Vector3.down, hitboxCheckLength);
 
 
-            Debug.DrawRay(transform.position + Vector3.left * 0.25f + Vector3.up * 0.5f, Vector3.right * 0.5f);
+            Debug.DrawRay(transform.position + Vector3.left * 0.3f, Vector3.up * 0.4f);
+            Debug.DrawRay(transform.position + Vector3.right * 0.3f, Vector3.up * 0.4f);
 
-            if (hitUp && hitDown && hitUp.collider.CompareTag("Ground") && hitDown.collider.CompareTag("Ground"))
+            if ((hitUpL && hitUpL.collider.CompareTag("Ground") || (hitUpR && hitUpR.collider.CompareTag("Ground"))) && (hitDownL && hitDownL.collider.CompareTag("Ground") || (hitDownR && hitDownR.collider.CompareTag("Ground"))))
             {
                 CheckpointManager.Instance.Respawn();
             }
