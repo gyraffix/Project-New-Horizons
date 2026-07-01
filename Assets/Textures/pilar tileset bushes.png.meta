@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e71f80a1ac82b041be5d83bc7d74eef
+guid: 55866ce552546f24fb685c89d3fff437
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bush tilemap_0
+      name: pilar tileset bushes_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb253ebcb1e24940ad68950b33dde6f
+      internalID: -431276761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pilar tileset bushes_1
       rect:
         serializedVersion: 2
         x: 0
@@ -131,78 +153,21 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 128, y: 57}
-        - {x: 93, y: 57}
-        - {x: 29, y: 48}
-        - {x: -93, y: -74}
-        - {x: -103, y: -114}
-        - {x: -103, y: -128}
-        - {x: 128, y: -128}
-      tessellationDetail: 0
-      bones: []
-      spriteID: e868de369ac2a004bb3663049cbfcce0
-      internalID: -1588804927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bush tilemap_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c858ad69c50da4449b477f5b8584e49d
-      internalID: -1885939843
+      spriteID: dbbc3ea780bd9a944a0980ccb6aeba0d
+      internalID: -495558322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bush tilemap_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 103, y: -93}
-        - {x: -24, y: 27}
-        - {x: -103, y: 57}
-        - {x: -128, y: 57}
-        - {x: -128, y: -128}
-        - {x: 103, y: -128}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 989f8ef9d4121424d82c20aca0bc39e4
-      internalID: 387339483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bush tilemap_3
+      name: pilar tileset bushes_2
       rect:
         serializedVersion: 2
         x: 0
@@ -210,59 +175,15 @@ TextureImporter:
         width: 256
         height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c4d7df2c6a801747b6dd261dd6dd4dd
-      internalID: 1919924823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bush tilemap_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea759418415d16f448d88198584c939b
-      internalID: -1043567293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bush tilemap_5
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 564a7670d000af34ca4203d042ec9126
-      internalID: -508342028
+      spriteID: 0e447094b6fb2a54a95eca701ae23ece
+      internalID: -447769168
       vertices: []
       indices: 
       edges: []
@@ -271,7 +192,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a4958c88f69618544bc34c4280e84a58
+    spriteID: bb80f0ebcd061624faf8b99868cdaa7d
     internalID: 0
     vertices: []
     indices: 
@@ -281,12 +202,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bush tilemap_0: -1588804927
-      bush tilemap_1: -1885939843
-      bush tilemap_2: 387339483
-      bush tilemap_3: 1919924823
-      bush tilemap_4: -1043567293
-      bush tilemap_5: -508342028
+      pilar tileset bushes_0: -431276761
+      pilar tileset bushes_1: -495558322
+      pilar tileset bushes_2: -447769168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
