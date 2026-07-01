@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,9 +27,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip musicStart;
     [SerializeField] private AudioSource generalSounds;
     [SerializeField] private AudioSource musicLoop;
-
-    [SerializeField] private AudioMixerGroup SFXAudio;
-    [SerializeField] private AudioMixerGroup BackgroundAudio;
 
 
     [Header("Player Variables")]
@@ -60,15 +58,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartMusic());
-
-        AssigningMixers();
-    }
-
-    private void AssigningMixers()
-    {
-        generalSounds.outputAudioMixerGroup = SFXAudio;
-        musicLoop.outputAudioMixerGroup = BackgroundAudio;
-    }
+    }   
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -207,5 +197,5 @@ public class GameManager : MonoBehaviour
     public void ToggleIntro()
     {
         hasSeenIntro = true;
-    }
+    }       
 }
