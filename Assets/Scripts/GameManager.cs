@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,14 +20,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int flamesCollected;
 
-    [Header("Sound")]
+    [Header("Sound")]    
     [SerializeField] private AudioClip levelCompleteSFX;
     [SerializeField] private AudioClip gravSwitchSFX;
     [SerializeField] private AudioClip flameSFX;
     [SerializeField] private AudioClip musicStart;
     [SerializeField] private AudioSource generalSounds;
     [SerializeField] private AudioSource musicLoop;
-
 
 
     [Header("Player Variables")]
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartMusic());
-    }
+    }   
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -119,11 +120,8 @@ public class GameManager : MonoBehaviour
         return gravityUp;
     }
 
-    public void SwapGravity()
+    public void ForceSwapGravity()
     {
-        if (currentGravitySwitches <= 0)
-            return;
-
         if (PlayerControler.Instance.GetComponent<AffectedByGravity>().inAir)
         {
             currentGravitySwitches--;
@@ -164,6 +162,14 @@ public class GameManager : MonoBehaviour
         musicLoop.Play();
     }
 
+    public void SwapGravity()
+    {
+        if (currentGravitySwitches <= 0 || Time.timeScale < 0.5f)
+            return;
+
+        ForceSwapGravity();
+    }
+
     public void ResetGravity()
     {
         currentGravitySwitches = totalGravitySwitches;
@@ -191,5 +197,5 @@ public class GameManager : MonoBehaviour
     public void ToggleIntro()
     {
         hasSeenIntro = true;
-    }
+    }       
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
@@ -9,6 +10,9 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] private Transform currentCheckpoint;
     [SerializeField] private float animationDuration = 0.5f;
     private HashSet<Transform> previousCheckpoints = new();
+    private bool dead;
+    public bool Dead { get { return dead; } }
+    
 
     #region Public getters
     public static CheckpointManager Instance { get { return instance; } }
@@ -42,8 +46,11 @@ public class CheckpointManager : MonoBehaviour
 
     public void Respawn()
     {
+        dead = true;
         StartCoroutine(RespawnDelay());
     }
+
+    
 
     private IEnumerator RespawnDelay()
     {
@@ -55,10 +62,11 @@ public class CheckpointManager : MonoBehaviour
         playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         if (GameManager.Instance.GravityUp)
-            GameManager.Instance.SwapGravity();
+            GameManager.Instance.ForceSwapGravity();
 
         PlayerControler.Instance.ResetMovement();
         player.transform.position = currentCheckpoint.position;
         PlayerControler.Instance.RunParticles();
+        dead = false;
     }
 }
